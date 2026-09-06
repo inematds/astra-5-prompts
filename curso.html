@@ -1,0 +1,1340 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="curso" content="astra5prompts">
+<title>Astra: 5 Pedidos de Verdade · INEMA.CLUB PRO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aula.css">
+<script>(function(){try{var m=document.querySelector('meta[name=curso]');var CK=(m&&m.content)||'v5:curso';var s=JSON.parse(localStorage.getItem(CK));if(s&&s.prefs&&s.prefs.theme)document.documentElement.setAttribute('data-theme',s.prefs.theme);}catch(e){}})();</script>
+<!--
+  PROTOCOLO DE DESCOBERTA (formato-curso-v5, Passo 0 — respondido antes da geração, 2026-09-06):
+  - Público específico: profissionais 40+ que já usam ChatGPT ou Claude no chat para tarefas simples e querem resultado de negócio, não brincadeira.
+  - Profissões-alvo (≥2): contadora autônoma · dono de pequena clínica odontológica · corretor de imóveis.
+  - Familiaridade com tecnologia: média-baixa. Usa celular, WhatsApp, planilha básica e chat de IA. Nunca abriu terminal.
+  - Resultado prático esperado: sair sabendo rodar os 5 pedidos (prompts) num chat de IA e conferir se o resultado saiu certo. Prioridade nos pedidos 01, 02 e 05, que dão resultado sem código; 03 e 04 entram adaptados.
+  - Tempo por sessão: 20 minutos.
+  Fonte: "GPT-6 Astra Is Here: 5 Things You NEED to Do With It" (set/2026), prompts traduzidos e adaptados para uso em chat.
+  Auditoria anti-clone: comparado com segunda-opiniao (último v5). Diferenças: 6 aulas (1 FUNDAMENTO + 4 FERRAMENTA + 1 INTEGRAÇÃO), .qapply usado, hero em registro de bancada/gaveta/balança (não espelho), exemplos em situações novas (folha de pagamento, agenda da clínica, visita de imóvel).
+-->
+<style>
+  .view{display:none}.view.active{display:block}
+  .lnav{max-width:1160px;margin:0 auto 5vh;padding:0 clamp(24px,5vw,60px);display:flex;justify-content:space-between;gap:12px}
+  .lnav a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--line2);border-radius:12px;padding:12px 16px}
+  .lnav a:hover{border-color:var(--accent);color:var(--ink)}
+  #v-trilha .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,60px)}
+  #v-trilha .t-hero{position:relative;overflow:hidden;padding:20vh 0 8vh;border-bottom:1px solid var(--line)}
+  #v-trilha h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,6.4vw,72px);line-height:1;letter-spacing:-.025em;margin:0 0 22px}
+  #v-trilha h1 em{font-style:italic;color:var(--accent)}
+  #v-trilha .lead{font-family:var(--serif);font-size:clamp(19px,2.1vw,24px);line-height:1.5;color:var(--ink-soft);max-width:50ch;margin:0 0 30px}
+  #v-trilha section{padding:8vh 0}
+  #v-trilha .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+  #v-trilha h2{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,38px);margin:0 0 28px}
+  #v-trilha .aulas{display:grid;gap:14px}
+  #v-trilha .au{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 24px}
+  #v-trilha .au .num{font-family:var(--serif);font-size:30px;color:var(--accent);text-align:center}
+  #v-trilha .au h3{font-family:var(--serif);font-weight:500;font-size:21px;margin:0 0 5px}
+  #v-trilha .au p{margin:0;color:var(--muted);font-size:14.5px}
+  #v-trilha .au .meta{font-family:var(--mono);font-size:11px;color:var(--accent);white-space:nowrap;text-align:right}
+  #v-trilha .au .prog{position:static;margin-top:10px;height:5px;border-radius:99px;background:var(--line);overflow:hidden;max-width:220px;width:auto}
+  #v-trilha .au .prog i{display:block;height:100%;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+  #v-trilha footer{max-width:1080px;margin:0 auto;padding:6vh clamp(24px,5vw,60px) 12vh;color:var(--faint);text-align:center;font-family:var(--serif);font-style:italic;border-top:1px solid var(--line)}
+  @media(max-width:720px){ #v-trilha .au{grid-template-columns:44px 1fr} #v-trilha .au .meta{grid-column:2;text-align:left} }
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-inner">
+  <span class="brand"><a class="mark" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a><a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a><a class="course" href="landing.html">Astra: 5 Pedidos de Verdade</a></span>
+  <a class="back" href="#trilha" style="display:none">← trilha</a>
+  <button id="pill" class="pill" style="display:none">0 lido</button>
+  <button id="revbtn">revisar <span id="revn">0</span></button>
+  <button id="exbtn">exercícios</button>
+  <button id="jorbtn">jornada</button>
+  <button id="helpbtn" aria-label="Como funciona">?</button>
+  <button id="prefsbtn" aria-label="Preferências de leitura">Aa</button>
+  <button id="themebtn">tema: escuro</button>
+</div></div>
+
+<!-- ===== TRILHA ===== -->
+<section class="view" id="v-trilha">
+  <header class="t-hero"><div class="wrap">
+    <p class="kicker">Trilha única · 6 aulas</p>
+    <h1>Cinco pedidos que a IA <em>entrega de verdade</em></h1>
+    <p class="lead">Todo mundo está usando o Astra, o novo modelo GPT-6, para fazer joguinho. Você vai usá-lo para achar o gargalo do seu negócio, juntar seus números numa tela, testar seu site como cliente, criar uma identidade visual e descobrir onde seu dinheiro vaza. Cada aula termina com um resultado que você mesmo confere.</p>
+  </div></header>
+  <section><div class="wrap">
+    <div class="statcards"></div>
+    <p class="eyebrow">Aulas</p>
+    <h2>Do início ao fim</h2>
+    <div class="aulas">
+      <a class="au on" data-aula="1" href="#aula-1">
+        <div class="num">1</div>
+        <div><h3>Escolha o problema certo</h3><p>Saia com um problema real do seu trabalho escolhido para entregar à IA, e a frase que diz como você vai conferir o resultado.</p><div class="prog"><i></i></div></div>
+        <div class="meta">18 min · abrir →</div>
+      </a>
+      <a class="au on" data-aula="2" href="#aula-2">
+        <div class="num">2</div>
+        <div><h3>O operador de 90 dias</h3><p>Saia com o seu gargalo dos próximos três meses nomeado em uma frase e um plano que já passou por uma rodada de críticas.</p><div class="prog"><i></i></div></div>
+        <div class="meta">22 min · abrir →</div>
+      </a>
+      <a class="au on" data-aula="3" href="#aula-3">
+        <div class="num">3</div>
+        <div><h3>Seus números numa tela só</h3><p>Saia com um painel que responde em cinco segundos se o seu trimestre está no rumo, feito só com números seus.</p><div class="prog"><i></i></div></div>
+        <div class="meta">20 min · abrir →</div>
+      </a>
+      <a class="au on" data-aula="4" href="#aula-4">
+        <div class="num">4</div>
+        <div><h3>Teste seu site como cliente</h3><p>Saia com uma lista numerada do que quebra, confunde ou afasta quem chega no seu site pela primeira vez.</p><div class="prog"><i></i></div></div>
+        <div class="meta">20 min · abrir →</div>
+      </a>
+      <a class="au on" data-aula="5" href="#aula-5">
+        <div class="num">5</div>
+        <div><h3>Uma família visual para os seus posts</h3><p>Saia com três cartões de rede social que parecem feitos pela mesma mão, a partir de uma única referência que você admira.</p><div class="prog"><i></i></div></div>
+        <div class="meta">18 min · abrir →</div>
+      </a>
+      <a class="au on" data-aula="6" href="#aula-6">
+        <div class="num">6</div>
+        <div><h3>Onde o dinheiro vaza</h3><p>Saia com uma tabela dos seus vazamentos de dinheiro, cada linha com o comprovante, e nenhum cancelamento feito sem você decidir.</p><div class="prog"><i></i></div></div>
+        <div class="meta">22 min · abrir →</div>
+      </a>
+    </div>
+  </div></section>
+  <footer><div class="wrap">Astra: 5 Pedidos de Verdade · INEMA.CLUB PRO</div></footer>
+</section>
+
+<!-- ===== AULA 1 · FUNDAMENTO ===== -->
+<section class="view" id="v-aula-1" data-aula="1" data-tempo="18min">
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Aula 1 de 6 · Fundamento</p>
+    <h1>Escolha o<br><em>problema certo</em></h1>
+    <p class="promise">Ao fim desta aula você escolhe um problema real do seu trabalho para entregar à IA e escreve, em uma frase, como vai conferir se o resultado saiu certo.</p>
+    <p class="why">O Astra chegou e a internet encheu de joguinho feito em cinco minutos. Divertido, mas não paga boleto. A diferença entre brincar e ter resultado não está na ferramenta: está no problema para o qual você aponta ela, e na sua capacidade de dizer se a resposta veio certa. Esta aula resolve isso antes de qualquer pedido.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <ellipse cx="150" cy="200" rx="90" ry="10" fill="#000" opacity=".25"/>
+    <rect x="60" y="80" width="180" height="110" rx="6" stroke="#948DA6" stroke-width="2" fill="#1a1824"/>
+    <rect x="60" y="80" width="180" height="22" rx="6" stroke="#948DA6" stroke-width="2" fill="#221f2e"/>
+    <circle cx="150" cy="91" r="4" fill="#948DA6"/>
+    <path d="M80 120 h24 M80 140 h24 M80 160 h24" stroke="#6C6580" stroke-width="10" stroke-linecap="round"/>
+    <path d="M116 120 h24 M116 140 h24 M116 160 h24" stroke="#6C6580" stroke-width="10" stroke-linecap="round"/>
+    <path d="M188 120 h24 M188 140 h24 M188 160 h24" stroke="#6C6580" stroke-width="10" stroke-linecap="round"/>
+    <rect x="150" y="48" width="30" height="120" rx="3" fill="#F2B45C" opacity=".95"/>
+    <rect x="150" y="48" width="30" height="14" rx="3" fill="#0E0D14" opacity=".35"/>
+    <path d="M165 30 L165 44" stroke="#F2B45C" stroke-width="2"/><path d="M159 36 L165 30 L171 36" stroke="#F2B45C" stroke-width="2" fill="none"/>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="fundamento">
+      <h2><span class="n">01</span> O Astra é um modelo novo, e a novidade não é o joguinho</h2>
+      <p>Astra é o nome do novo <span class="gterm" tabindex="0" data-def="O programa que responde quando você conversa com uma IA. Cada versão nova é um modelo novo, como um funcionário que foi trocado por outro mais experiente.">modelo</span> da OpenAI, o GPT-6, lançado em setembro de 2026. Você fala com ele no mesmo lugar de sempre: a caixa de conversa do ChatGPT. O que mudou está por baixo. Ele aguenta trabalhar por horas numa tarefa comprida, acha um detalhe no meio de uma pilha enorme de documentos e enxerga o que está na tela do computador com muito mais precisão do que o modelo anterior.</p>
+      <p>Isso importa para você porque, até ontem, a IA era boa em respostas curtas. Agora ela é boa em trabalho. Para a contadora Regina, que atende 40 empresas sozinha, a diferença é entre pedir "escreva um lembrete de prazo" e pedir "leia os 40 contratos e me diga quais clientes têm cláusula de reajuste vencendo em outubro". O segundo pedido era impossível no ano passado. Hoje é uma tarde de trabalho da IA, e uma hora de conferência da Regina.</p>
+      <div class="qanchor"><p>Aponte a IA para o problema que você vem adiando. O resto é detalhe.</p></div>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="fundamento">
+      <h2><span class="n">02</span> Um pedido bem feito tem quatro partes</h2>
+      <p>O que você escreve para a IA tem nome: <span class="gterm" tabindex="0" data-def="O texto que você escreve para a IA dizendo o que quer. Pode ser uma linha ou uma página inteira. Neste curso, chamamos de pedido.">prompt</span>, ou simplesmente pedido. Os cinco pedidos deste curso são longos, e todos seguem a mesma anatomia. Reconhecer as quatro partes é o que permite adaptar cada um ao seu caso sem estragar o que faz ele funcionar.</p>
+      <p>As quatro partes são: <b>contexto</b> (quem você é e o que você tem em mãos), <b>tarefa</b> (o que deve ser feito, em ordem), <b>limites</b> (o que a IA não pode fazer sem perguntar) e <b>evidência</b> (o que significa "pronto", de um jeito que você consiga abrir e olhar). Quando um pedido falha, quase sempre falta uma dessas quatro.</p>
+      <p>O dentista Marcos, dono de uma clínica com três cadeiras, pediu "melhore minha agenda". Veio um texto genérico sobre produtividade. Ele refez com as quatro partes: "Sou dono de clínica odontológica com 3 dentistas. Aqui está minha agenda dos últimos 2 meses. Encontre os horários que ficam vazios com mais frequência. Não proponha mudar preço. Me entregue uma tabela com dia da semana, horário e quantas vezes ficou vazio." Dessa vez veio a tabela, e ele viu que terça às 14h ficava vazia em 7 de 8 semanas.</p>
+      <div class="quiz" data-answer="c">
+        <p class="qk">Teste-se</p><p class="q">A corretora de uma imobiliária escreveu: "Aqui estão os 30 anúncios que publiquei este ano. Reescreva os 5 piores para ficarem mais atraentes. Não invente metragem nem preço." O que falta nesse pedido?</p>
+        <button class="opt" data-k="a" data-fb="O contexto está lá: ela disse quem é pelo material que entregou (30 anúncios seus) e o que tem em mãos.">Contexto</button>
+        <button class="opt" data-k="b" data-fb="Os limites estão claros: não inventar metragem nem preço.">Limites</button>
+        <button class="opt" data-k="c" data-fb="Falta a evidência. Como ela vai saber quais eram os 5 piores e por quê? Sem pedir o critério e a lista lado a lado (antes e depois), ela recebe 5 textos bonitos e nenhuma forma de conferir se a escolha fez sentido.">Evidência</button>
+        <p class="qfb"></p>
+      </div>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="fundamento">
+      <h2><span class="n">03</span> A regra única: o problema mais difícil que você ainda consegue conferir</h2>
+      <p>Existe uma regra só para escolher o que entregar ao Astra, e ela vale para os cinco pedidos: escolha o problema mais difícil que você ainda consegue conferir. Fácil demais, e você não ganha nada que não faria em dez minutos. Difícil demais para conferir, e você fica com uma resposta bonita em que não pode confiar. O ponto certo é onde dói e onde você ainda tem como olhar o resultado e dizer "isso está certo".</p>
+      <p>O corretor Paulo tinha três candidatos. "Escreva o anúncio da casa da rua Bento" é fácil demais: ele faz isso dormindo. "Me diga o preço do metro quadrado no bairro Petrópolis" é difícil de conferir: a IA responde com segurança, mas de onde veio o número? Já "compare meus 12 últimos fechamentos e me diga em que etapa eu mais perdi dias" é difícil e conferível: os fechamentos são dele, as datas estão nos contratos, ele consegue checar cada linha.</p>
+      <div class="qbefore-after">
+        <div class="qba-col qba-before"><p class="qba-lbl">Antes</p><p class="qba-txt">"Me dá umas ideias para vender mais imóveis." Vem uma lista de dez dicas que servem para qualquer corretor do país.</p></div>
+        <div class="qba-col qba-depois"><p class="qba-lbl">Depois</p><p class="qba-txt">"Aqui estão meus 12 últimos fechamentos com datas. Em que etapa eu mais perdi dias? Me mostre a conta." Vem uma tabela com os dias por etapa, e ele confere contra os contratos.</p></div>
+        <div class="qba-saldo"><b>Saldo:</b> de dez dicas genéricas para um número que ele mesmo pode checar em quinze minutos.</div>
+      </div>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="fundamento">
+      <h2><span class="n">04</span> Ajudantes trabalham por trás, mas a evidência é sua</h2>
+      <p>Vários pedidos deste curso falam em <span class="gterm" tabindex="0" data-def="Cópias menores da IA que o modelo principal aciona para dividir uma tarefa grande. Você não fala com elas: fala com o coordenador, que distribui o trabalho e junta os resultados.">sub-agentes</span>. Pense numa equipe de estagiários que o Astra contrata por conta própria, distribui o serviço e depois recolhe. Você não gerencia nenhum deles. Você conversa com um coordenador só. Isso é o que permite pedir coisas grandes: ler 40 contratos, testar um site inteiro, revisar 90 dias de extrato.</p>
+      <p>O que não muda, com ou sem ajudantes, é a sua exigência: evidência que você consegue abrir. Uma tabela, um arquivo, uma imagem da tela, a linha exata do extrato. Se a IA disser "verifiquei tudo e está certo", isso não é evidência, é promessa. A contadora Regina tem uma frase padrão no fim de todo pedido: "Nunca marque uma tarefa como concluída sem me mostrar algo que eu possa abrir." Desde que passou a usar, parou de descobrir erro depois de enviar ao cliente.</p>
+      <p>Guarde essa frase. Ela vai aparecer, com pequenas variações, em todos os cinco pedidos das próximas aulas. É o que separa uma IA que trabalha para você de uma IA que só fala bonito.</p>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p1" data-mode="tarefa">
+      <p class="pk">Pratique agora <span class="pcount">0/4 feito</span></p>
+      <h3 class="ph">Escolha o seu problema e a sua forma de conferir</h3>
+      <p class="pgoal">Sair com um problema escolhido e uma frase que diz como você vai saber que deu certo. Papel e caneta ou o bloco de notas do celular. Cerca de 10 minutos.</p>
+      <p class="psafe">Nada aqui envolve a IA ainda, nem mexe em nenhum dado seu. É só pensar e anotar. Se a escolha parecer errada amanhã, risque e escolha outro problema: a lista continua valendo.</p>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Escreva três problemas do seu trabalho que você vem adiando há mais de um mês. Frases curtas, sem se justificar.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Ao lado de cada um, responda com sim ou não: "se a IA resolver, eu consigo olhar o resultado e dizer se está certo?" Se a resposta for não, anote o que faltaria para conseguir.</label></li>
+        <li><label><input type="checkbox" data-ptask="3"> Circule o mais difícil entre os que receberam sim. Esse é o seu problema.</label></li>
+        <li><label><input type="checkbox" data-ptask="4"> Complete a frase: "Vou saber que deu certo quando eu abrir ______ e ver ______." Se não conseguir preencher os dois espaços, volte ao passo 3 e escolha outro.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de fazer o que a maioria pula: escolheu um problema que vale o tempo da IA e já sabe como vai conferir a resposta. Os cinco pedidos das próximas aulas partem daqui.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> três medidores: trabalho longo, achar detalhe na pilha e enxergar a tela. O traço cinza é o modelo anterior; o traço verde é o Astra. O salto maior é no trabalho longo."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <text x="16" y="40" font-family="monospace" font-size="9" fill="#948DA6">trabalho longo</text>
+        <rect x="16" y="46" width="188" height="8" rx="4" fill="#2A2637"/><rect x="16" y="46" width="70" height="8" rx="4" fill="#6C6580"/><rect x="16" y="46" width="109" height="8" rx="4" fill="#7CE0C6" opacity=".9"/>
+        <text x="16" y="90" font-family="monospace" font-size="9" fill="#948DA6">achar detalhe na pilha</text>
+        <rect x="16" y="96" width="188" height="8" rx="4" fill="#2A2637"/><rect x="16" y="96" width="139" height="8" rx="4" fill="#6C6580"/><rect x="16" y="96" width="181" height="8" rx="4" fill="#7CE0C6" opacity=".9"/>
+        <text x="16" y="140" font-family="monospace" font-size="9" fill="#948DA6">enxergar a tela</text>
+        <rect x="16" y="146" width="188" height="8" rx="4" fill="#2A2637"/><rect x="16" y="146" width="145" height="8" rx="4" fill="#6C6580"/><rect x="16" y="146" width="174" height="8" rx="4" fill="#7CE0C6" opacity=".9"/>
+        <rect x="16" y="176" width="10" height="4" fill="#6C6580"/><text x="30" y="181" font-family="monospace" font-size="8" fill="#948DA6">anterior</text>
+        <rect x="90" y="176" width="10" height="4" fill="#7CE0C6"/><text x="104" y="181" font-family="monospace" font-size="8" fill="#948DA6">Astra</text>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> as quatro partes de um pedido empilhadas em ordem. A seta só chega a um resultado conferível quando a última peça, evidência, está no lugar."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="30" y="20" width="110" height="26" rx="5" stroke="#948DA6" stroke-width="1.5"/><text x="42" y="37" font-family="monospace" font-size="9" fill="#C7C2D0">1 contexto</text>
+        <rect x="30" y="56" width="110" height="26" rx="5" stroke="#948DA6" stroke-width="1.5"/><text x="42" y="73" font-family="monospace" font-size="9" fill="#C7C2D0">2 tarefa</text>
+        <rect x="30" y="92" width="110" height="26" rx="5" stroke="#948DA6" stroke-width="1.5"/><text x="42" y="109" font-family="monospace" font-size="9" fill="#C7C2D0">3 limites</text>
+        <rect x="30" y="128" width="110" height="26" rx="5" stroke="#7CE0C6" stroke-width="2"/><text x="42" y="145" font-family="monospace" font-size="9" fill="#7CE0C6">4 evidência</text>
+        <path d="M150 141 L185 141" stroke="#7CE0C6" stroke-width="2"/><path d="M178 135 L185 141 L178 147" stroke="#7CE0C6" stroke-width="2" fill="none"/>
+        <rect x="160" y="160" width="46" height="30" rx="4" stroke="#7CE0C6" stroke-width="1.5"/><path d="M168 170 h30 M168 178 h20" stroke="#7CE0C6" stroke-width="1.5"/>
+        <text x="150" y="128" font-family="monospace" font-size="8" fill="#948DA6">dá pra abrir</text>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> dois eixos: quanto mais à direita, mais difícil; quanto mais alto, mais fácil de conferir. O ponto certo é o canto superior direito, longe do 'fácil demais' e fora da zona onde não dá para checar."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <path d="M30 170 L200 170 M30 170 L30 20" stroke="#948DA6" stroke-width="1.5"/>
+        <path d="M193 165 L200 170 L193 175 M25 27 L30 20 L35 27" stroke="#948DA6" stroke-width="1.5" fill="none"/>
+        <text x="120" y="188" font-family="monospace" font-size="8" fill="#948DA6">mais difícil →</text>
+        <text x="8" y="100" font-family="monospace" font-size="8" fill="#948DA6" transform="rotate(-90 12 100)">dá pra conferir →</text>
+        <rect x="32" y="22" width="168" height="70" fill="#7CE0C6" opacity=".06"/>
+        <circle cx="60" cy="50" r="6" stroke="#6C6580" stroke-width="1.5"/><text x="48" y="40" font-family="monospace" font-size="8" fill="#6C6580">fácil demais</text>
+        <circle cx="170" cy="140" r="6" stroke="#6C6580" stroke-width="1.5"/><text x="118" y="158" font-family="monospace" font-size="8" fill="#6C6580">não dá pra checar</text>
+        <circle cx="168" cy="48" r="9" stroke="#7CE0C6" stroke-width="2.5"/><circle cx="168" cy="48" r="3" fill="#7CE0C6"/>
+        <text x="132" y="34" font-family="monospace" font-size="8" fill="#7CE0C6">ponto certo</text>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> você fala com um coordenador só. Ele distribui para três ajudantes e recolhe. O que volta para você não é 'feito', são três documentos que você abre."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="30" cy="100" r="14" stroke="#ECE6D9" stroke-width="2"/><text x="20" y="130" font-family="monospace" font-size="8" fill="#948DA6">você</text>
+        <path d="M46 100 L74 100" stroke="#948DA6" stroke-width="1.5"/>
+        <rect x="76" y="84" width="44" height="32" rx="5" stroke="#7CE0C6" stroke-width="2"/><text x="80" y="103" font-family="monospace" font-size="8" fill="#7CE0C6">coord.</text>
+        <path d="M120 92 L150 50 M120 100 L150 100 M120 108 L150 150" stroke="#948DA6" stroke-width="1.2"/>
+        <rect x="152" y="38" width="26" height="22" rx="4" stroke="#948DA6" stroke-width="1.2"/>
+        <rect x="152" y="89" width="26" height="22" rx="4" stroke="#948DA6" stroke-width="1.2"/>
+        <rect x="152" y="139" width="26" height="22" rx="4" stroke="#948DA6" stroke-width="1.2"/>
+        <rect x="188" y="40" width="16" height="20" rx="2" stroke="#F2B45C" stroke-width="1.5"/><rect x="188" y="91" width="16" height="20" rx="2" stroke="#F2B45C" stroke-width="1.5"/><rect x="188" y="141" width="16" height="20" rx="2" stroke="#F2B45C" stroke-width="1.5"/>
+        <path d="M196 170 Q120 195 34 120" stroke="#F2B45C" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+        <text x="120" y="190" font-family="monospace" font-size="8" fill="#F2B45C">evidência de volta</text>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Grife qualquer trecho para virar um cartão de revisão.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>O Astra mudou o tipo de coisa que dá para pedir: de resposta curta para trabalho longo, com pilha de documento e tela do computador no meio.</li>
+    <li>Todo pedido deste curso tem contexto, tarefa, limites e evidência. Quando um resultado decepciona, procure qual das quatro partes ficou de fora.</li>
+    <li>A escolha do problema segue uma regra só: o mais difícil que você ainda consegue conferir.</li>
+    <li>Ajudantes trabalham por trás e você não os gerencia. O que você exige é algo que dá para abrir: tabela, arquivo, linha do extrato.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de escolher um problema que vale o tempo da IA e já sabe como vai conferir a resposta.</p>
+  <p class="na-action">Nos próximos 15 minutos, pegue o problema que você circulou e escreva as quatro partes dele num rascunho: contexto, tarefa, limites, evidência. Não mande para a IA ainda. Só escreva.</p>
+  <p class="na-hook">Na próxima aula, você entrega esse rascunho a um pedido que entrevista você até achar o gargalo dos seus próximos três meses. É o que trava quem tem dez problemas e não sabe por qual começar.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#trilha">← trilha</a><a href="#aula-2">próxima: o operador de 90 dias →</a></nav>
+<footer>Aula 1 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-1">
+[
+  {"front":"Um dentista pede à IA: 'me diga qual é o preço médio de uma limpeza na minha cidade'. Pela regra única, esse pedido está no ponto certo? Por quê?","back":"Não. É fácil de pedir, mas difícil de conferir: ele não tem como saber de onde a IA tirou o número. Melhor seria dar a ela a própria tabela de preços e a dos concorrentes que ele já conhece, e pedir a comparação."},
+  {"front":"Você recebeu da IA a frase 'verifiquei todos os contratos e nenhum tem reajuste em outubro'. O que você faz antes de aceitar?","back":"Pede a evidência: a lista dos contratos com a cláusula de reajuste de cada um e a data. 'Verifiquei' é promessa, não prova. Sem algo para abrir, a tarefa não está concluída."},
+  {"front":"Uma contadora escreveu um pedido com contexto, tarefa e evidência, mas a IA propôs mandar e-mail para os clientes dela. Qual parte faltou?","back":"Os limites. Sem dizer 'não envie nada, não gaste nada sem me perguntar', a IA pode tomar iniciativas que você não autorizou."},
+  {"front":"Você tem três problemas: um fácil e conferível, um difícil e conferível, um difícil e impossível de conferir. Qual entrega ao Astra primeiro e por quê?","back":"O difícil e conferível. O fácil você faz sozinho em dez minutos; o impossível de conferir te deixa com uma resposta em que não pode confiar."},
+  {"front":"Um corretor quer que a IA 'organize meu processo de vendas'. Reescreva como um pedido que ele consiga conferir.","back":"Algo como: 'Aqui estão meus 12 últimos fechamentos com datas de cada etapa. Me mostre em que etapa eu mais perco dias, com a conta por fechamento numa tabela.' Ele checa contra os contratos."}
+]
+</script>
+
+<!-- COMPLETUDE aula-1 | tipo=FUNDAMENTO | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="18min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  Regina contadora (s1, s4) · Marcos dentista (s2) · Paulo corretor (s3) (4/4)
+  [OK] apoio-visual       fig 1 medidores · fig 2 quatro partes · fig 3 dois eixos · fig 4 coordenador e ajudantes (4/4)
+  [OK] practice           .practice[data-mode="tarefa"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal "cerca de 10 minutos" (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-1"> presente (5 cartões: decisão, diagnóstico, diagnóstico, decisão, aplicação)
+  [OK] anti-duplicacao    substring ≥6 palavras: nenhuma · forma: 5/5 pergunta/decisão/aplicação · operação: recap afirma, cartões aplicam a cenário novo
+  [OK] teste-se-FUND      tipo=FUNDAMENTO: presente (1 quiz data-fb no step 02)
+  Pool: quiz + cartões + qbefore-after + qanchor = 4 tipos (teto 5). Densidade: quadros em s1 e s3, nenhum adjacente.
+-->
+</section>
+
+<!-- ===== AULA 2 · FERRAMENTA · Pedido 01 ===== -->
+<section class="view" id="v-aula-2" data-aula="2" data-tempo="22min">
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Aula 2 de 6 · Pedido 01</p>
+    <h1>O operador de<br><em>90 dias</em></h1>
+    <p class="promise">Ao fim desta aula você sai com o seu gargalo dos próximos três meses escrito em uma frase, e um plano para quebrá-lo que já sobreviveu a uma rodada de críticas.</p>
+    <p class="why">Você tem dez problemas e não sabe por qual começar. Então começa por nenhum, ou pelo mais barulhento, que raramente é o mais importante. Este pedido inverte a ordem: a IA não responde nada até entrevistar você e achar a única coisa que, destravada, destrava as outras. Só depois monta o plano. E antes de te mostrar, manda alguém atacar o plano.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <ellipse cx="150" cy="212" rx="95" ry="9" fill="#000" opacity=".25"/>
+    <rect x="45" y="40" width="210" height="160" rx="8" stroke="#948DA6" stroke-width="2" fill="#1a1824"/>
+    <rect x="45" y="40" width="210" height="30" rx="8" fill="#221f2e" stroke="#948DA6" stroke-width="2"/>
+    <circle cx="90" cy="40" r="5" fill="#0E0D14" stroke="#948DA6" stroke-width="2"/><circle cx="210" cy="40" r="5" fill="#0E0D14" stroke="#948DA6" stroke-width="2"/>
+    <text x="110" y="61" font-family="monospace" font-size="11" fill="#C7C2D0">out · nov · dez</text>
+    <g stroke="#37324a" stroke-width="1.2">
+      <path d="M60 92 h180 M60 118 h180 M60 144 h180 M60 170 h180"/>
+      <path d="M90 82 v106 M120 82 v106 M150 82 v106 M180 82 v106 M210 82 v106"/>
+    </g>
+    <g fill="#6C6580"><rect x="66" y="98" width="16" height="10" rx="2"/><rect x="126" y="124" width="16" height="10" rx="2"/><rect x="186" y="150" width="16" height="10" rx="2"/><rect x="96" y="176" width="16" height="10" rx="2"/></g>
+    <circle cx="165" cy="131" r="17" stroke="#F2B45C" stroke-width="3" fill="none"/>
+    <rect x="156" y="124" width="16" height="12" rx="2" fill="#F2B45C"/>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">01</span> Uma pergunta por vez, até o gargalo caber numa frase</h2>
+      <p>A primeira fase do pedido proíbe a IA de propor qualquer coisa. Ela só pode perguntar, uma pergunta de cada vez, e esperar a sua resposta. No mínimo oito perguntas, cavando em quatro direções: o que você vem evitando, o que custa mais tempo ou dinheiro, do que todo o resto depende, e o que você consertaria se só pudesse consertar uma coisa. Quando estiver confiante, ela nomeia o gargalo numa frase e pede que você confirme. Se você disser não, ela continua.</p>
+      <p>O formato de uma pergunta por vez não é capricho. Quando a IA despeja dez perguntas de uma vez, você responde as fáceis e pula as que doem. Uma de cada vez, não tem onde se esconder. O dentista Marcos entrou achando que o problema era captar pacientes novos. Na sexta pergunta ("o que você faz com quem falta na consulta?") percebeu que perdia 20% da agenda em faltas e não fazia nada. O gargalo dele não era captar. Era confirmar.</p>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">02</span> O plano se organiza em frentes, cada uma com "pronto" definido</h2>
+      <p>Confirmado o gargalo, a IA monta o plano de 90 dias. Primeiro ela lista todas as formas de ajudar: tarefas que ela mesma faz, pesquisas que roda, rascunhos que escreve, coisas que checa toda semana. Depois agrupa isso em frentes de trabalho. E, para cada frente, quatro coisas: o objetivo, a primeira tarefa, o que significa "pronto" e como se mede. Por fim, ela diz o que precisa de você: arquivos, acessos, decisões.</p>
+      <p>A contadora Regina teve como gargalo "eu refaço todo mês o mesmo pedido de documentos para 40 clientes e metade atrasa". O plano veio em três frentes: um modelo de cobrança que troca só nome e prazo, um calendário de lembretes por cliente e uma lista dos 8 clientes que atrasam sempre, para uma conversa diferente. Cada frente tinha a primeira tarefa para a semana seguinte e o que ela precisava entregar: a lista de clientes e os prazos de cada regime.</p>
+      <div class="qsteps">
+        <p class="qsk">O que toda frente do plano precisa ter</p>
+        <ol>
+          <li><b>Objetivo</b> em uma frase, ligado ao gargalo, não a uma vontade solta.</li>
+          <li><b>Primeira tarefa</b>, pequena o bastante para começar esta semana.</li>
+          <li><b>Definição de pronto</b>: o que você vai abrir para dizer que acabou.</li>
+          <li><b>Medida</b>: um número que muda se a frente funcionar (faltas por semana, dias de atraso).</li>
+          <li><b>O que depende de você</b>: arquivos, acessos e decisões que a IA não tem.</li>
+        </ol>
+      </div>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT · Claude, set/2026">
+      <h2><span class="n">03</span> Antes de você ver o plano, uma segunda IA ataca ele</h2>
+      <p>Aqui está a parte que ninguém faz sozinho. O pedido manda a IA parar e, antes de te mostrar o plano final, submeter o plano a um crítico. No original, o Astra chama o Claude, outra IA, como ajudante, e pede que ele argumente contra: o que está errado, o que falta, o que é grande demais, o que você não vai fazer de verdade. As três objeções mais fortes viram reescrita. E o debate roda de novo sobre a versão reescrita.</p>
+      <p>Se a sua conta não faz esse acionamento sozinha, você faz na mão em dois minutos: abre uma segunda conversa (no Claude, ou outra janela do próprio ChatGPT), cola o gargalo e o plano, e pede as três objeções mais fortes. Depois cola as objeções de volta na primeira conversa. O resultado que você recebe é uma tabela curta: objeção, o que mudou. Duas rodadas. É a diferença entre um plano que parece bom e um plano que aguentou pancada.</p>
+      <p>O corretor Paulo recebeu um plano com cinco frentes. O crítico apontou: "cinco frentes para um corretor que trabalha sozinho é plano de empresa, não de pessoa; ele vai abandonar três na segunda semana". O plano voltou com duas frentes. Paulo diz que foi a primeira vez que um plano dele durou mais de um mês.</p>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">04</span> Execução com relatório de cinco linhas e uma pasta por frente</h2>
+      <p>A quarta fase é onde os ajudantes entram. O pedido diz: um ajudante por frente, cada um dono da sua, com relatório semanal em cinco linhas fixas: feito, travado, próximo, evidência, risco. Tudo que cada frente produz vai para uma pasta com o nome dela. O coordenador mantém o plano atualizado, avisa o que está escorregando e nunca marca uma tarefa como pronta sem algo que você possa abrir.</p>
+      <p>Se você usa a IA só pelo chat, sem um programa que execute tarefas sozinho no seu computador, essa fase muda de dono: você executa a primeira tarefa de cada frente e volta à conversa toda semana pedindo o relatório de cinco linhas sobre o que você entregou. Funciona igual. O que não pode faltar são as cinco linhas e a evidência. O dentista Marcos, na frente "confirmação de consulta", recebe toda segunda: feito (mensagens enviadas), travado (3 pacientes sem WhatsApp), próximo (ligar para os 3), evidência (planilha com as respostas), risco (a recepcionista não está seguindo o texto). Cinco linhas, e ele sabe onde está.</p>
+      <div class="qerr">
+        <p class="qk">Erro comum</p>
+        <p class="qerr-txt"><b>Fazer o debate uma vez e nunca mais.</b> O plano sobrevive às críticas na semana 1 e vira lei. Mas o pedido diz para repetir o debate no fim de cada frente, porque o que aprendeu executando muda o plano. Quem pula isso termina os 90 dias executando com perfeição um plano que ficou velho no dia 20.</p>
+      </div>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p2" data-mode="prompt">
+      <p class="pk">Pratique agora <span class="pcount">0/5 feito</span></p>
+      <h3 class="ph">Rode a entrevista e saia com o gargalo e o plano criticado</h3>
+      <p class="pgoal">Sair com o gargalo em uma frase e o plano depois de uma rodada de objeções. Cerca de 15 minutos; a entrevista pode pedir um pouco mais se você responder com calma.</p>
+      <p class="psafe">É só uma conversa. Nada é enviado a ninguém, nada é gasto, nenhum arquivo seu é alterado. Evite escrever nomes de clientes ou pacientes; use "cliente A" e "cliente B". Se em algum momento parecer que a IA está indo para o lado errado, diga "volte à entrevista" e ela retoma.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Você é meu operador pelos próximos três meses. Trabalhamos em quatro fases. Não pule nenhuma.
+
+FASE 1 — ENTREVISTA (uma pergunta por vez)
+Sua tarefa é encontrar o único fator que mais limita &lt;meu negócio / minha vida profissional&gt; nos próximos 3 meses. Me entreviste. Faça uma pergunta, espere minha resposta, depois faça a próxima. No mínimo 8 perguntas. Cave nisto: o que eu venho evitando, o que me custa mais tempo ou dinheiro, do que todo o resto depende, o que eu consertaria se só pudesse consertar uma coisa. Quando estiver confiante, nomeie o gargalo em uma frase e peça minha confirmação. Não avance até eu dizer sim.
+
+FASE 2 — PLANO
+Monte o plano para quebrar esse gargalo em 90 dias.
+- Liste todas as formas de me ajudar. Seja específico: tarefas que você mesmo faz, pesquisas que roda, rascunhos que escreve, coisas que confere toda semana.
+- Agrupe em frentes de trabalho. Para cada frente: o objetivo, a primeira tarefa, o que significa "pronto" e como medimos.
+- Diga o que precisa de mim: arquivos, acessos, decisões.
+Depois PARE e rode o debate abaixo antes de eu ver o plano final.
+
+FASE 3 — O DEBATE (obrigatório)
+Submeta o gargalo e o plano completo a um crítico. Se você consegue acionar outra IA como ajudante, faça isso. Se não, me entregue o texto pronto para eu colar numa segunda conversa e trazer as objeções de volta. Peça ao crítico: o que está errado, o que falta, o que é grande demais, o que eu não vou fazer de verdade. Leve a sério as três objeções mais fortes e reescreva o plano. Rode o debate de novo sobre a versão reescrita. Me mostre as duas rodadas numa tabela curta: objeção → o que mudou.
+Repita este debate no fim de cada frente, não só uma vez.
+
+FASE 4 — EXECUÇÃO
+Se você consegue acionar ajudantes que executam tarefas: um ajudante por frente, cada um dono da sua, com relatório semanal em cinco linhas (feito / travado / próximo / evidência / risco) e uma pasta com o nome da frente. Se não consegue, eu executo a primeira tarefa de cada frente e volto toda semana; você me entrega o relatório de cinco linhas sobre o que eu trouxer. Você é o coordenador: mantenha o plano atualizado, avise o que está escorregando e nunca marque uma tarefa como pronta sem uma evidência que eu possa abrir.
+
+Regras: pergunte antes de gastar dinheiro ou mandar mensagem para qualquer pessoa. Se estiver chutando, diga que está chutando. Prefira o problema mais difícil que eu ainda consiga conferir.</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Cole o pedido numa conversa nova. Troque só o trecho entre &lt; &gt;. Responda a primeira pergunta com honestidade, não com o que você acha que deveria responder.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Siga até a IA nomear o gargalo em uma frase. Se a frase não bater com o que você sente, diga não e explique por quê. Ela continua perguntando.</label></li>
+        <li><label><input type="checkbox" data-ptask="3"> Receba o plano em frentes. Confira se cada frente tem os cinco itens da lista desta aula. Se faltar "pronto" ou "medida", peça.</label></li>
+        <li><label><input type="checkbox" data-ptask="4"> Rode o debate. Se a IA não acionar um crítico sozinha, abra uma segunda conversa, cole gargalo e plano, peça as três objeções mais fortes e traga de volta.</label></li>
+        <li><label><input type="checkbox" data-ptask="5"> Você deve ver: o gargalo numa frase, o plano reescrito e uma tabela com "objeção → o que mudou". Se a tabela não veio, peça-a antes de fazer qualquer outra coisa.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de fazer o que consultor cobra caro para fazer: ouviu perguntas até achar o gargalo, e recebeu um plano que já apanhou antes de chegar em você. Guarde a tabela de objeções. Ela é o registro de por que o plano é como é.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> um funil de perguntas: oito ou mais entram por cima, uma de cada vez, e uma única frase sai por baixo. A IA só passa para a fase seguinte depois do seu 'sim'."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <path d="M30 20 L190 20 L125 120 L125 160 L95 170 L95 120 Z" stroke="#948DA6" stroke-width="1.5" fill="#1a1824"/>
+        <g font-family="monospace" font-size="8" fill="#C7C2D0"><text x="46" y="36">1?</text><text x="76" y="36">2?</text><text x="106" y="36">3?</text><text x="136" y="36">4?</text><text x="166" y="36">5?</text><text x="66" y="58">6?</text><text x="104" y="58">7?</text><text x="142" y="58">8?</text></g>
+        <path d="M110 80 L110 100" stroke="#7CE0C6" stroke-width="1.5"/><path d="M105 95 L110 100 L115 95" stroke="#7CE0C6" stroke-width="1.5" fill="none"/>
+        <rect x="40" y="176" width="140" height="18" rx="4" stroke="#7CE0C6" stroke-width="2"/>
+        <text x="48" y="189" font-family="monospace" font-size="8" fill="#7CE0C6">gargalo em 1 frase · sim?</text>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> três frentes lado a lado. Cada coluna tem as mesmas cinco linhas: objetivo, primeira tarefa, pronto, medida, depende de você. Uma frente sem alguma linha está incompleta."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <g stroke="#948DA6" stroke-width="1.5"><rect x="14" y="20" width="58" height="160" rx="5"/><rect x="81" y="20" width="58" height="160" rx="5"/><rect x="148" y="20" width="58" height="160" rx="5"/></g>
+        <g font-family="monospace" font-size="8" fill="#7CE0C6"><text x="22" y="36">frente A</text><text x="89" y="36">frente B</text><text x="156" y="36">frente C</text></g>
+        <g stroke="#37324a" stroke-width="1"><path d="M14 44 h58 M81 44 h58 M148 44 h58"/></g>
+        <g font-family="monospace" font-size="7" fill="#948DA6">
+          <text x="20" y="62">objetivo</text><text x="20" y="88">1ª tarefa</text><text x="20" y="114">pronto</text><text x="20" y="140">medida</text><text x="20" y="166">de você</text>
+          <text x="87" y="62">objetivo</text><text x="87" y="88">1ª tarefa</text><text x="87" y="114">pronto</text><text x="87" y="140">medida</text><text x="87" y="166">de você</text>
+          <text x="154" y="62">objetivo</text><text x="154" y="88">1ª tarefa</text><text x="154" y="114">pronto</text><text x="154" y="140">medida</text><text x="154" y="166">de você</text>
+        </g>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> o plano sai da primeira IA, passa por um crítico que devolve três objeções, e volta reescrito. O ciclo roda duas vezes antes de chegar a você, com a tabela 'objeção → o que mudou'."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="14" y="70" width="60" height="40" rx="6" stroke="#7CE0C6" stroke-width="2"/><text x="22" y="94" font-family="monospace" font-size="8" fill="#7CE0C6">plano v1</text>
+        <path d="M74 80 Q110 40 146 80" stroke="#948DA6" stroke-width="1.5" fill="none"/><path d="M140 73 L146 80 L138 82" stroke="#948DA6" stroke-width="1.5" fill="none"/>
+        <rect x="146" y="70" width="60" height="40" rx="6" stroke="#F2B45C" stroke-width="2"/><text x="156" y="94" font-family="monospace" font-size="8" fill="#F2B45C">crítico</text>
+        <path d="M146 100 Q110 140 74 100" stroke="#F2B45C" stroke-width="1.5" fill="none"/><path d="M80 107 L74 100 L82 98" stroke="#F2B45C" stroke-width="1.5" fill="none"/>
+        <text x="86" y="50" font-family="monospace" font-size="7" fill="#948DA6">plano</text>
+        <text x="80" y="140" font-family="monospace" font-size="7" fill="#F2B45C">3 objeções</text>
+        <text x="20" y="130" font-family="monospace" font-size="7" fill="#948DA6">× 2 rodadas</text>
+        <rect x="14" y="156" width="192" height="30" rx="4" stroke="#948DA6" stroke-width="1.2"/>
+        <text x="22" y="175" font-family="monospace" font-size="8" fill="#C7C2D0">objeção → o que mudou</text>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> o ciclo semanal de uma frente: trabalho durante a semana, relatório de cinco linhas fixas na segunda, e tudo o que foi produzido guardado numa pasta com o nome da frente."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="70" cy="90" r="46" stroke="#948DA6" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <path d="M70 44 A46 46 0 0 1 116 90" stroke="#7CE0C6" stroke-width="3"/><path d="M110 82 L116 90 L108 92" stroke="#7CE0C6" stroke-width="2" fill="none"/>
+        <text x="52" y="94" font-family="monospace" font-size="8" fill="#C7C2D0">semana</text>
+        <g font-family="monospace" font-size="8" fill="#C7C2D0"><text x="136" y="52">feito</text><text x="136" y="70">travado</text><text x="136" y="88">próximo</text><text x="136" y="106" fill="#F2B45C">evidência</text><text x="136" y="124">risco</text></g>
+        <path d="M130 44 L130 128" stroke="#948DA6" stroke-width="1"/>
+        <path d="M30 150 h60 l6 -8 h30 v40 h-96 z" stroke="#F2B45C" stroke-width="1.5" fill="none"/>
+        <text x="40" y="176" font-family="monospace" font-size="8" fill="#F2B45C">pasta da frente</text>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Grife qualquer trecho para virar um cartão de revisão.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>Este pedido proíbe a IA de propor antes de perguntar. Uma pergunta de cada vez, no mínimo oito, até o gargalo caber numa frase que você confirma.</li>
+    <li>O plano vem em frentes, e cada frente carrega objetivo, primeira tarefa, definição de pronto, medida e o que depende de você.</li>
+    <li>Antes de chegar em você, o plano passa por um crítico duas vezes. A tabela "objeção → o que mudou" é o registro dessa pancada.</li>
+    <li>Na execução, o que sustenta tudo é o relatório de cinco linhas por semana e a pasta por frente. Com ou sem ajudantes automáticos, isso não muda.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de sair de dez problemas para um gargalo nomeado e um plano que aguentou críticas.</p>
+  <p class="na-action">Nos próximos 15 minutos, crie as pastas com o nome de cada frente no seu computador ou no seu serviço de arquivos, e coloque dentro da primeira o que a IA pediu de você: a lista, a planilha, o que for. A primeira tarefa da semana já tem onde morar.</p>
+  <p class="na-hook">Na próxima aula, você resolve o que trava quem já tem plano: saber, num olhar, se o trimestre está no rumo. Seus números vão parar numa tela só.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#aula-1">← aula 1</a><a href="#aula-3">próxima: seus números numa tela só →</a></nav>
+<footer>Aula 2 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-2">
+[
+  {"front":"Na terceira pergunta da entrevista, você já sabe qual é o seu gargalo e quer pular direto para o plano. O que fazer, e por quê?","back":"Continuar respondendo. O pedido exige no mínimo oito perguntas porque a resposta que vem na terceira costuma ser o problema barulhento, não o que trava o resto. O dentista que 'sabia' que era captação descobriu na sexta que era confirmação."},
+  {"front":"O plano veio com uma frente cujo objetivo é 'melhorar o atendimento'. Qual das cinco linhas da frente está falhando e como você corrige?","back":"A medida (e provavelmente o pronto). 'Melhorar' não tem número. Peça: 'qual número muda se essa frente funcionar?' Sem isso, você nunca saberá se acabou."},
+  {"front":"Sua conta de IA não aciona um crítico sozinha. Como você faz a fase 3 acontecer mesmo assim?","back":"Abre uma segunda conversa, cola o gargalo e o plano, pede as três objeções mais fortes e traz de volta para a primeira conversa. Depois exige o quadro final, com cada crítica e a mudança que ela provocou."},
+  {"front":"Uma corretora recebeu um plano com seis frentes e está animada. O que o crítico provavelmente vai apontar, e o que ela deve fazer antes de começar?","back":"Que seis frentes para uma pessoa sozinha é plano de empresa e ela vai abandonar a maioria. Ela deve rodar o debate antes de executar qualquer coisa e aceitar cortar para duas ou três."},
+  {"front":"O relatório semanal da IA veio com quatro linhas: feito, travado, próximo, risco. O que falta e por que isso importa mais que as outras quatro?","back":"Falta a evidência. Sem algo que você possa abrir, 'feito' é só uma palavra. As outras linhas dependem dela para serem verdade."}
+]
+</script>
+
+<!-- COMPLETUDE aula-2 | tipo=FERRAMENTA | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="22min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  Marcos dentista (s1, s4) · Regina contadora (s2) · Paulo corretor (s3) (4/4)
+  [OK] apoio-visual       fig 1 funil · fig 2 três frentes · fig 3 ciclo do crítico · fig 4 ciclo semanal (4/4)
+  [OK] practice           .practice[data-mode="prompt"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal "cerca de 15 minutos" (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-2"> presente (5 cartões: decisão, diagnóstico, aplicação, decisão, diagnóstico)
+  [OK] anti-duplicacao    substring ≥6 palavras: nenhuma · forma: 5/5 · operação: recap afirma, cartões decidem/diagnosticam em cenário
+  [N/A] teste-se-FUND     aula é FERRAMENTA (obrigação não se aplica); sem teste-se opcional
+  Pool: qsteps (obrig.) + qerr (obrig.) + cartões (opcional) = 3 tipos (teto 5). Densidade: quadros em s2 e s4, nenhum adjacente. data-versao em 4/4 steps.
+-->
+</section>
+
+<!-- ===== AULA 3 · FERRAMENTA · Pedido 02 ===== -->
+<section class="view" id="v-aula-3" data-aula="3" data-tempo="20min">
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Aula 3 de 6 · Pedido 02</p>
+    <h1>Seus números<br>numa <em>tela só</em></h1>
+    <p class="promise">Ao fim desta aula você tem um painel feito só com números seus, aberto no seu navegador, que responde em cinco segundos se o trimestre está no rumo.</p>
+    <p class="why">Seus números moram em dez lugares: o aplicativo do banco, uma planilha, a maquininha, o caderno, a memória. Todo mês você "sente" se foi bom. Sentir não decide nada. Este pedido faz três perguntas, monta o modelo e entrega uma tela que responde uma única coisa. Se um quadro não ajuda a responder, ele sai.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <ellipse cx="150" cy="215" rx="70" ry="8" fill="#000" opacity=".25"/>
+    <rect x="95" y="20" width="110" height="180" rx="10" stroke="#948DA6" stroke-width="2" fill="#1a1824"/>
+    <text x="112" y="44" font-family="monospace" font-size="10" fill="#C7C2D0">META DO TRI</text>
+    <rect x="138" y="58" width="24" height="120" rx="12" stroke="#948DA6" stroke-width="2" fill="#0E0D14"/>
+    <rect x="141" y="108" width="18" height="67" rx="9" fill="#7CE0C6"/>
+    <circle cx="150" cy="180" r="16" fill="#7CE0C6"/>
+    <g stroke="#948DA6" stroke-width="1.5"><path d="M166 70 h10 M166 96 h10 M166 122 h10 M166 148 h10"/></g>
+    <g font-family="monospace" font-size="8" fill="#948DA6"><text x="180" y="73">100%</text><text x="180" y="99">75%</text><text x="180" y="125">50%</text><text x="180" y="151">25%</text></g>
+    <path d="M118 108 h16" stroke="#F2B45C" stroke-width="2.5"/><text x="104" y="104" font-family="monospace" font-size="8" fill="#F2B45C">hoje</text>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">01</span> Três perguntas, uma de cada vez, e nada mais</h2>
+      <p>O pedido começa amarrando a IA a exatamente três perguntas, feitas uma por vez. Primeira: qual foi a sua receita, mês a mês, nos últimos 12 meses. Segunda: qual é a única meta deste trimestre que você quer de verdade bater. Terceira: quais são os <span class="gterm" tabindex="0" data-def="As ações que dependem só de você e que, feitas em quantidade, movem a meta. Propostas enviadas, visitas feitas, consultas confirmadas. Você não controla a receita; controla os insumos.">insumos</span> que você controla para chegar lá. Não é "seus indicadores". É o que você faz com as mãos: ligações, propostas, visitas, horas entregues.</p>
+      <p>A terceira pergunta é a que quase ninguém sabe responder de primeira, e é a mais importante. Receita é consequência. Insumo é causa. O painel que vem depois só serve se ligar os dois.</p>
+      <div class="qapply">
+        <p class="qak">Na sua profissão, os insumos são</p>
+        <ul>
+          <li><b>Contadora autônoma:</b> propostas enviadas a empresas novas por semana, e reuniões de renovação marcadas com clientes atuais antes do fim do contrato.</li>
+          <li><b>Dono de clínica odontológica:</b> consultas confirmadas por dia (não agendadas: confirmadas) e planos de tratamento apresentados por semana.</li>
+          <li><b>Corretor de imóveis:</b> visitas realizadas por semana e captações novas com foto e preço fechados.</li>
+        </ul>
+      </div>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">02</span> A IA monta o modelo em tabela e pede que você corrija</h2>
+      <p>Com as três respostas, a IA constrói o modelo. Não é nada místico: é uma tabela. A tendência da receita mês a mês e o <span class="gterm" tabindex="0" data-def="Se o trimestre continuar exatamente no ritmo dos meses que já passaram, onde ele termina. Uma projeção simples, sem otimismo.">ritmo atual</span>. A meta do trimestre como alvo, com a distância entre onde você está e onde precisa chegar. E cada insumo como uma alavanca, com uma meta semanal e a ligação com a meta grande.</p>
+      <p>Depois de mostrar a tabela, ela para e pergunta o que está errado. Essa pausa é a parte que você não pode pular. O dentista Marcos viu a tabela dizer que ele precisava de 22 consultas confirmadas por dia. A clínica só tem 3 cadeiras: o máximo físico é 18. A meta estava errada, não o insumo. Ele ajustou a meta do trimestre para o que a estrutura permite, e o painel nasceu honesto.</p>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">03</span> Um painel numa tela só, com cada número rastreável</h2>
+      <p>Modelo corrigido, a IA entrega o painel. Ele vem como um arquivo que você baixa e abre com dois cliques. Não se assuste com o formato: é como uma página da internet, só que guardada no seu computador. Ninguém mais vê. Não fica na internet. Fechou, sumiu; abriu de novo, está lá.</p>
+      <p>O pedido descreve a tela com precisão: escura, calma, uma tela só. Os números grandes primeiro. Depois o gráfico da receita. Depois o anel da meta, que mostra quanto do trimestre já foi coberto. Depois os mostradores dos insumos. Todo número tem que vir de uma resposta sua. Se faltar algum dado, o quadro fica vazio com um aviso do que falta, em vez de inventar. Ao passar o mouse por cima de qualquer número, aparece de onde ele veio. E há uma área de "atualizar": você cola os números da semana e tudo recalcula.</p>
+      <p>A contadora Regina colou os 12 meses e viu, no número grande, que o ritmo atual dava 82% da meta. Passou o mouse: o 82% vinha da média dos últimos 3 meses. Fazia sentido. Foi a primeira vez que ela soube, sem abrir cinco coisas, onde estava.</p>
+      <div class="qerr">
+        <p class="qk">Erro comum</p>
+        <p class="qerr-txt"><b>Aceitar um número que você não deu.</b> Quando falta um mês, a IA tende a preencher com um valor plausível para o gráfico ficar bonito. O pedido proíbe isso, mas a proibição só vale se você conferir: passe o mouse sobre cada número grande e veja a origem. Se a origem for "estimado" ou "média", e você não pediu, apague aquele mês e deixe vazio. Painel com buraco é honesto; painel com chute é perigoso.</p>
+      </div>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">04</span> Depois, conecte o que você já tem, uma fonte de cada vez</h2>
+      <p>A última fase do pedido pergunta o que você consegue entregar de fontes reais: o extrato do banco, o sistema de cobrança ou a maquininha, as notas emitidas, a agenda, o cadastro de clientes. Para cada fonte que você conectar, a IA troca o campo que você digitava à mão pela leitura direta e te diz, com todas as letras, o que aquele número passou a ler.</p>
+      <p>Você não precisa conectar nada no primeiro dia. Colar os números à mão funciona, e para muita gente é o suficiente por meses. Conectar é para quando cansar de colar. O corretor Paulo conecta só uma coisa: o extrato do banco, que ele baixa do aplicativo uma vez por mês e cola na área de atualizar. As visitas ele continua digitando, porque estão na cabeça dele e em nenhum sistema. Painel meio automático, meio manual, e cem por cento dele.</p>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="5" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">05</span> A regra do painel: se não responde a pergunta, sai</h2>
+      <p>O pedido termina com uma regra que vale mais que todo o resto: o painel é a resposta a uma pergunta só, "o trimestre está no rumo?". Se um quadro não ajuda a responder isso, ele é removido. É por isso que o painel cabe numa tela. Não é limitação técnica. É disciplina.</p>
+      <p>O uso semanal é curto. O dentista Marcos faz toda segunda, às 8h, antes do primeiro paciente: cola os números da semana, olha o número grande, olha qual mostrador de insumo está mais atrás e decide uma coisa só para a semana. Cinco minutos. Ele não olha o painel de novo até a próxima segunda.</p>
+      <div class="qsteps">
+        <p class="qsk">O ritual de cinco minutos, toda semana</p>
+        <ol>
+          <li>Cole na área de atualizar a receita da semana e a contagem de cada insumo.</li>
+          <li>Leia só o número grande: no rumo, ou fora?</li>
+          <li>Se fora, olhe qual mostrador de insumo está mais atrás da meta semanal.</li>
+          <li>Decida <b>uma</b> ação para a semana, sobre aquele insumo. Anote fora do painel.</li>
+          <li>Feche. Não abra de novo até a próxima semana.</li>
+        </ol>
+      </div>
+      <div class="mobfig" data-mobfig="5"></div>
+      <button class="readbtn" data-read="s5">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p3" data-mode="prompt">
+      <p class="pk">Pratique agora <span class="pcount">0/5 feito</span></p>
+      <h3 class="ph">Monte o seu painel e abra ele no navegador</h3>
+      <p class="pgoal">Sair com o painel aberto na sua tela, mostrando o ritmo atual contra a meta do trimestre. Cerca de 15 minutos, mais o tempo de achar sua receita por mês.</p>
+      <p class="psafe">Seus números ficam na sua conversa e no arquivo do seu computador. Ninguém é cobrado, nenhuma conta é conectada nesta prática (a fase 4 fica para depois, se você quiser). Se preferir, arredonde para centenas e não escreva nome de cliente. Se não tiver 12 meses à mão, use 6: o painel nasce menor e você completa depois.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Monte para mim um painel de acompanhamento do meu negócio.
+
+Passo 1 — faça exatamente estas três perguntas, uma de cada vez, e espere cada resposta:
+1. Qual foi minha receita por mês nos últimos 12 meses? (Vou colar os números ou um arquivo.)
+2. Qual é a ÚNICA meta deste trimestre que eu quero de verdade bater?
+3. Quais são os insumos que eu preciso cumprir para chegar lá? (As coisas que eu controlo: &lt;propostas enviadas, visitas feitas, consultas confirmadas, horas entregues&gt;.)
+
+Passo 2 — transforme minhas respostas num modelo:
+- A tendência da receita mês a mês, com o ritmo atual.
+- A meta do trimestre como alvo, com a distância entre onde estou e onde preciso chegar.
+- Cada insumo como uma alavanca, com meta semanal e como ela se liga à meta grande.
+Me mostre o modelo numa tabela e peça que eu corrija o que estiver errado.
+
+Passo 3 — construa um painel bonito, como um único arquivo que eu abro no navegador.
+- Escuro, calmo, uma tela só. Números grandes primeiro. Depois o gráfico da receita. Depois o anel da meta. Depois os mostradores dos insumos.
+- Todo número tem que vir das minhas respostas. Nenhum dado inventado. Se faltar algo, deixe um espaço vazio dizendo o que falta.
+- Inclua uma pequena área de "atualizar" onde eu colo os números novos da semana e o painel recalcula.
+- Ao passar o mouse sobre qualquer número, mostre de onde ele veio.
+Me explique em duas linhas como salvar o arquivo e abrir com dois cliques.
+
+Passo 4 — conecte o que eu já tenho. Pergunte quais destes eu consigo te dar: extrato do banco, sistema de cobrança ou maquininha, notas emitidas, agenda, cadastro de clientes. Para cada um que eu conectar, troque o campo manual pela leitura real e me diga exatamente o que ele passou a ler. (Hoje, pule este passo; eu aviso quando quiser.)
+
+Regra: o painel é a resposta a uma pergunta só: "o trimestre está no rumo?". Se um quadro não ajuda a responder isso, remova.</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Antes de colar o pedido, junte sua receita por mês. Vale abrir o aplicativo do banco e anotar 12 números num papel.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Cole o pedido e responda as três perguntas, uma de cada vez. Na terceira, use insumos que você conta com as mãos, não indicadores que você "acompanha".</label></li>
+        <li><label><input type="checkbox" data-ptask="3"> Leia a tabela do modelo. Se a meta semanal de algum insumo for fisicamente impossível, diga. A IA corrige o modelo, não você.</label></li>
+        <li><label><input type="checkbox" data-ptask="4"> Baixe o arquivo do painel, salve na área de trabalho e abra com dois cliques. Você deve ver: um número grande, um gráfico, um anel e os mostradores. Passe o mouse num número e confira a origem.</label></li>
+        <li><label><input type="checkbox" data-ptask="5"> Teste a área de atualizar: cole um número novo qualquer e veja o painel recalcular. Depois desfaça.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de juntar dez lugares numa tela que responde uma pergunta. Na segunda que vem, cinco minutos e você sabe onde está o trimestre.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> três caixas em sequência, uma por pergunta. A terceira, insumos, é a que liga o que você faz com as mãos à meta. Sem ela, o painel só mostra o passado."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="20" y="20" width="180" height="36" rx="6" stroke="#948DA6" stroke-width="1.5"/><text x="30" y="42" font-family="monospace" font-size="9" fill="#C7C2D0">1 receita · 12 meses</text>
+        <path d="M110 56 L110 70" stroke="#948DA6" stroke-width="1.5"/>
+        <rect x="20" y="72" width="180" height="36" rx="6" stroke="#948DA6" stroke-width="1.5"/><text x="30" y="94" font-family="monospace" font-size="9" fill="#C7C2D0">2 a única meta do tri</text>
+        <path d="M110 108 L110 122" stroke="#948DA6" stroke-width="1.5"/>
+        <rect x="20" y="124" width="180" height="36" rx="6" stroke="#7CE0C6" stroke-width="2"/><text x="30" y="146" font-family="monospace" font-size="9" fill="#7CE0C6">3 insumos que você controla</text>
+        <text x="30" y="184" font-family="monospace" font-size="8" fill="#948DA6">causa → consequência</text>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> o modelo é uma tabela: a linha de receita sobe e desce, o ritmo atual projeta o fim do trimestre, e a distância até a meta aparece como um degrau. A pausa 'o que está errado?' vem antes de qualquer tela."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <path d="M20 150 L200 150 M20 150 L20 30" stroke="#948DA6" stroke-width="1.2"/>
+        <path d="M24 120 L44 112 L64 118 L84 100 L104 104 L124 90 L144 94" stroke="#C7C2D0" stroke-width="2" fill="none"/>
+        <path d="M144 94 L200 80" stroke="#7CE0C6" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="150" y="74" font-family="monospace" font-size="8" fill="#7CE0C6">ritmo atual</text>
+        <path d="M20 46 L200 46" stroke="#F2B45C" stroke-width="1.5" stroke-dasharray="2 3"/><text x="24" y="42" font-family="monospace" font-size="8" fill="#F2B45C">meta</text>
+        <path d="M196 80 L196 48" stroke="#F2B45C" stroke-width="2"/><path d="M192 54 L196 48 L200 54 M192 74 L196 80 L200 74" stroke="#F2B45C" stroke-width="1.5" fill="none"/>
+        <text x="158" y="118" font-family="monospace" font-size="8" fill="#F2B45C">distância</text>
+        <rect x="20" y="166" width="180" height="22" rx="4" stroke="#948DA6" stroke-width="1.2"/><text x="30" y="181" font-family="monospace" font-size="8" fill="#C7C2D0">o que está errado aqui?</text>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> a anatomia da tela única, de cima para baixo: números grandes, gráfico da receita, anel da meta, mostradores dos insumos e a área de atualizar. Cada número tem uma origem que aparece ao passar o mouse."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="14" y="12" width="192" height="176" rx="8" stroke="#948DA6" stroke-width="1.5" fill="#15131d"/>
+        <text x="26" y="44" font-family="serif" font-size="26" fill="#ECE6D9">82%</text><text x="90" y="44" font-family="monospace" font-size="7" fill="#948DA6">do rumo</text>
+        <rect x="150" y="24" width="48" height="16" rx="3" fill="#221f2e" stroke="#7CE0C6" stroke-width="1"/><text x="154" y="35" font-family="monospace" font-size="6" fill="#7CE0C6">origem: mês 1–3</text>
+        <path d="M26 86 L46 80 L66 84 L86 72 L106 76 L126 66 L146 70 L166 60" stroke="#C7C2D0" stroke-width="1.5" fill="none"/>
+        <circle cx="46" cy="126" r="16" stroke="#2A2637" stroke-width="5"/><path d="M46 110 A16 16 0 1 1 33 136" stroke="#7CE0C6" stroke-width="5" fill="none"/>
+        <g stroke="#948DA6" stroke-width="1.2"><path d="M90 136 A14 14 0 0 1 118 136"/><path d="M130 136 A14 14 0 0 1 158 136"/><path d="M170 136 A14 14 0 0 1 198 136"/></g>
+        <g stroke="#F2B45C" stroke-width="1.5"><path d="M104 136 L98 126"/><path d="M144 136 L150 125"/><path d="M184 136 L182 124"/></g>
+        <rect x="26" y="156" width="172" height="22" rx="4" stroke="#37324a" stroke-width="1" stroke-dasharray="3 2"/><text x="34" y="171" font-family="monospace" font-size="7" fill="#948DA6">atualizar: cole os números da semana</text>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> cinco fontes possíveis apontando para o mesmo painel. As sólidas estão conectadas; as tracejadas continuam manuais. Misturar é normal: o painel não exige tudo automático."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <g font-family="monospace" font-size="8" fill="#C7C2D0"><text x="14" y="34">banco</text><text x="14" y="70">cobrança</text><text x="14" y="106">notas</text><text x="14" y="142">agenda</text><text x="14" y="178">clientes</text></g>
+        <path d="M70 30 L140 96" stroke="#7CE0C6" stroke-width="2"/>
+        <path d="M70 66 L140 98" stroke="#948DA6" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <path d="M70 102 L140 100" stroke="#948DA6" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <path d="M70 138 L140 102" stroke="#948DA6" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <path d="M70 174 L140 104" stroke="#948DA6" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <rect x="142" y="76" width="64" height="48" rx="6" stroke="#7CE0C6" stroke-width="2" fill="#15131d"/><text x="152" y="104" font-family="monospace" font-size="9" fill="#7CE0C6">painel</text>
+        <text x="120" y="190" font-family="monospace" font-size="7" fill="#948DA6">sólido = conectado</text>
+      </svg></div>
+      <div class="fig" data-fig="5" data-cap="<b>Fig.</b> um filtro com uma pergunta escrita nele. Quadros entram por cima; só passam os que ajudam a responder 'o trimestre está no rumo?'. Os outros ficam de fora, por mais bonitos que sejam."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <g stroke="#6C6580" stroke-width="1.2"><rect x="24" y="14" width="30" height="20" rx="3"/><rect x="64" y="14" width="30" height="20" rx="3"/><rect x="104" y="14" width="30" height="20" rx="3"/><rect x="144" y="14" width="30" height="20" rx="3"/></g>
+        <path d="M14 60 L206 60 L136 110 L84 110 Z" stroke="#7CE0C6" stroke-width="2" fill="#15131d"/>
+        <text x="46" y="86" font-family="monospace" font-size="8" fill="#7CE0C6">no rumo? sim / não</text>
+        <path d="M110 110 L110 130" stroke="#7CE0C6" stroke-width="1.5"/>
+        <g stroke="#7CE0C6" stroke-width="1.5"><rect x="74" y="136" width="30" height="20" rx="3"/><rect x="116" y="136" width="30" height="20" rx="3"/></g>
+        <g stroke="#6C6580" stroke-width="1" stroke-dasharray="2 2"><rect x="20" y="166" width="30" height="20" rx="3"/><rect x="170" y="166" width="30" height="20" rx="3"/></g>
+        <text x="60" y="182" font-family="monospace" font-size="7" fill="#6C6580">fora</text><text x="142" y="182" font-family="monospace" font-size="7" fill="#6C6580">fora</text>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Grife qualquer trecho para virar um cartão de revisão.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>Três perguntas bastam: receita por mês, a única meta do trimestre e os insumos que você controla. A terceira é a que liga causa a consequência.</li>
+    <li>O modelo é uma tabela com ritmo atual, distância até a meta e uma alavanca por insumo. A pausa para você corrigir vem antes de qualquer tela.</li>
+    <li>O painel cabe numa tela, mora no seu computador e tem uma origem visível para cada número. Buraco é melhor que chute.</li>
+    <li>Conectar fontes é opcional e gradual. O que não é opcional é a regra: quadro que não ajuda a responder "está no rumo?" sai.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de transformar dez lugares em uma tela que responde uma pergunta em cinco segundos.</p>
+  <p class="na-action">Nos próximos 15 minutos, marque na sua agenda um horário fixo de cinco minutos por semana para o ritual do painel. Segunda cedo funciona para a maioria. Coloque o lembrete antes que a semana engula.</p>
+  <p class="na-hook">Na próxima aula, você resolve o que trava quem tem site: descobrir o que quebra, confunde ou afasta quem chega lá pela primeira vez. A IA vai fingir que é seu cliente.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#aula-2">← aula 2</a><a href="#aula-4">próxima: teste seu site como cliente →</a></nav>
+<footer>Aula 3 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-3">
+[
+  {"front":"Um corretor respondeu à terceira pergunta com 'taxa de conversão e ticket médio'. O que está errado na resposta e o que ele deveria ter dito?","back":"Esses são indicadores, consequências. Insumo é o que ele faz com as mãos: visitas realizadas por semana, captações novas. O painel só liga causa a meta se o insumo for algo que ele controla."},
+  {"front":"A tabela do modelo pede 30 consultas confirmadas por dia numa clínica com 3 cadeiras. Quem corrige o quê?","back":"A IA corrige o modelo, depois que você aponta que 30 é fisicamente impossível. Provavelmente a meta do trimestre está grande demais para a estrutura. Ajusta-se a meta, não se finge o insumo."},
+  {"front":"No painel, você passa o mouse sobre o número grande e a origem diz 'estimado a partir da média'. Você não pediu estimativa. O que faz?","back":"Apaga o mês estimado e deixa vazio com aviso. Painel com buraco é honesto; painel com chute te faz decidir em cima de um número que não existe."},
+  {"front":"Uma contadora quer 'automatizar tudo' antes de usar o painel. Qual é o problema dessa ordem?","back":"Ela adia o uso por semanas por causa de conexões que talvez nunca precise. Colar à mão funciona desde o primeiro dia; conectar é para quando cansar de colar, uma fonte de cada vez."},
+  {"front":"A IA propôs adicionar ao painel um quadro com 'seguidores no Instagram'. Aplique a regra do painel e decida.","back":"Sai, a menos que seguidores sejam um insumo declarado que se liga à meta do trimestre. Se o quadro não ajuda a responder 'o trimestre está no rumo?', ele não entra, por mais interessante que seja."}
+]
+</script>
+
+<!-- COMPLETUDE aula-3 | tipo=FERRAMENTA | steps=5
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="20min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  três profissões no .qapply (s1) · Marcos dentista (s2, s5) · Regina contadora (s3) · Paulo corretor (s4) (5/5)
+  [OK] apoio-visual       fig 1 três perguntas · fig 2 tabela do modelo · fig 3 anatomia da tela · fig 4 fontes · fig 5 filtro (5/5)
+  [OK] practice           .practice[data-mode="prompt"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal "cerca de 15 minutos" (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-3"> presente (5 cartões: diagnóstico, decisão, decisão, diagnóstico, aplicação)
+  [OK] anti-duplicacao    substring ≥6 palavras: nenhuma · forma: 5/5 · operação: recap afirma, cartões aplicam a cenário
+  [N/A] teste-se-FUND     aula é FERRAMENTA (obrigação não se aplica); sem teste-se opcional
+  Pool: qerr (obrig.) + qsteps (obrig.) + qapply + cartões = 4 tipos (teto 5). Densidade: quadros em s1, s3, s5, nenhum adjacente. data-versao em 5/5 steps.
+-->
+</section>
+
+<!-- ===== AULA 4 · FERRAMENTA · Pedido 03 ===== -->
+<section class="view" id="v-aula-4" data-aula="4" data-tempo="20min">
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Aula 4 de 6 · Pedido 03</p>
+    <h1>Teste seu site<br>como <em>cliente</em></h1>
+    <p class="promise">Ao fim desta aula você tem uma lista numerada, do pior para o melhor, de tudo o que quebra, confunde ou afasta quem chega ao seu site pela primeira vez.</p>
+    <p class="why">Você conhece seu site de cor, e por isso é a pior pessoa para testá-lo. Você sabe onde clicar, perdoa o botão que demora e nem vê o formulário que não envia. Seu cliente novo não sabe nada disso. Ele tenta, trava e vai embora sem avisar. Este pedido coloca a IA no lugar dele, no computador e no celular, e ela conta tudo o que viu.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <ellipse cx="150" cy="218" rx="100" ry="8" fill="#000" opacity=".25"/>
+    <rect x="60" y="30" width="180" height="150" rx="6" stroke="#948DA6" stroke-width="2" fill="#1a1824"/>
+    <rect x="60" y="30" width="180" height="26" rx="6" fill="#221f2e" stroke="#948DA6" stroke-width="2"/>
+    <text x="118" y="48" font-family="monospace" font-size="10" fill="#C7C2D0">ABERTO</text>
+    <rect x="120" y="80" width="60" height="100" rx="3" stroke="#948DA6" stroke-width="2" fill="#0E0D14"/>
+    <circle cx="170" cy="132" r="3" fill="#948DA6"/>
+    <g fill="#6C6580"><ellipse cx="150" cy="212" rx="6" ry="9"/><ellipse cx="150" cy="196" rx="6" ry="9" opacity=".8"/><ellipse cx="152" cy="180" rx="6" ry="9" opacity=".6"/></g>
+    <rect x="132" y="150" width="36" height="14" rx="2" stroke="#F2B45C" stroke-width="2" fill="#0E0D14"/>
+    <path d="M138 153 L162 161 M162 153 L138 161" stroke="#F2B45C" stroke-width="2"/>
+    <rect x="30" y="100" width="24" height="32" rx="2" stroke="#7CE0C6" stroke-width="2" fill="#15131d"/><path d="M35 110 h14 M35 117 h14 M35 124 h9" stroke="#7CE0C6" stroke-width="1.5"/>
+    <path d="M42 96 L42 90 L58 90" stroke="#7CE0C6" stroke-width="1.5" fill="none"/>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">01</span> Duas metades: construir com críticos e testar como cliente</h2>
+      <p>O pedido original tem duas metades. A primeira é para quem vai construir o site do zero com a IA, e usa uma ideia que vale conhecer mesmo que você nunca construa nada: o <span class="gterm" tabindex="0" data-def="Um jeito de construir em que quem faz não é quem avalia. A IA que constrói entrega o trabalho a três outras conversas que nunca viram o processo, e só passa quando as três aprovam.">circuito de críticos</span>. A regra de ouro é que o aluno não corrige a própria prova. Quem constrói entrega para três críticos com memória limpa, cada um julgando uma coisa: cumpre o objetivo? segue o padrão visual? está à altura de uma referência real, lado a lado?</p>
+      <p>A segunda metade é a que qualquer pessoa com site usa hoje, e é o foco desta aula: a IA finge ser um cliente de primeira viagem e tenta fazer o que um cliente faria. O dentista Marcos usou as duas. Encomendou o site da clínica com o circuito de críticos, dando como referência o site de uma clínica de São Paulo que ele admira. E depois mandou a IA tentar agendar uma avaliação como se fosse paciente. Foi na segunda metade que ele descobriu que o botão "agendar" no celular não fazia nada.</p>
+      <div class="qsteps">
+        <p class="qsk">Se você for encomendar um site com críticos, exija</p>
+        <ol>
+          <li>Uma <b>referência real</b>: um site específico que já faz isso muito bem, não "algo moderno".</li>
+          <li>Uma lista de <b>5 a 7 mecanismos</b> extraídos dessa referência, que dá para checar olhando: tamanho do título, uma cor de destaque só, quanto de espaço vazio no topo.</li>
+          <li><b>Três críticos</b> separados, que nunca viram como o site foi feito: objetivo, padrão visual e comparação com a referência.</li>
+          <li>Veredito <b>sim ou não</b>, nunca nota. Todos os três precisam dizer sim.</li>
+          <li>Sem número fixo de rodadas. Termina quando ganha, ou quando você manda parar.</li>
+        </ol>
+      </div>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="ferramenta" data-versao="ChatGPT em modo agente · Claude com extensão de navegador, set/2026">
+      <h2><span class="n">02</span> A IA finge ser cliente de primeira viagem, não fiscal</h2>
+      <p>O pedido começa com uma instrução de personagem: "você é um cliente de primeira viagem, nunca viu este site, aja como uma pessoa real, não como um técnico de testes". Isso muda tudo. Um técnico testa botões. Um cliente tenta resolver a vida dele e desiste quando não consegue. Para isso funcionar, a IA precisa conseguir abrir sites de verdade: no ChatGPT, é o modo agente; no Claude, é a extensão que ele usa dentro do seu navegador. É um botão a mais na conversa, não um programa novo.</p>
+      <p>A jornada tem quatro momentos. Chegar na página inicial e dizer, em cinco segundos, o que aquele negócio faz; se não conseguir, essa é a descoberta número um. Tentar cumprir o objetivo clicando onde uma pessoa normal clicaria, preenchendo formulários com dados realistas e errando um de propósito para ver o que acontece. Seguir todo link do topo e do rodapé. E terminar o objetivo conferindo se o resultado ficou salvo de verdade: o pedido existe? a confirmação chegou? Tudo isso duas vezes: na tela do computador e na tela do celular.</p>
+      <p>O corretor Paulo deu como objetivo "agendar uma visita ao apartamento da capa". No computador, funcionou. No celular, o formulário de visita ficava escondido atrás do botão do WhatsApp. Três meses de anúncio pago mandando gente para um formulário que ninguém conseguia tocar.</p>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="ferramenta" data-versao="ChatGPT em modo agente · Claude com extensão de navegador, set/2026">
+      <h2><span class="n">03</span> O relatório vem do pior para o melhor, e ninguém conserta ainda</h2>
+      <p>A IA devolve uma lista numerada, do pior para o melhor. Cada item tem cinco partes: o que ela fez, o que esperava, o que aconteceu de verdade, uma imagem da tela naquele momento, e como repetir o problema em uma linha. E a lista vem separada em três gavetas: quebrado (não funciona), confuso (funciona, mas a pessoa não entende) e feio (funciona e se entende, mas afasta). Isso impede que um botão torto apareça acima de um formulário que não envia.</p>
+      <p>A instrução mais importante está no fim: "não conserte nada ainda, quero as descobertas cruas primeiro". Só depois que você disser "vai", ela conserta os itens quebrados, um de cada vez, e repete exatamente o passo que falhou para provar que está resolvido. A contadora Regina recebeu 11 itens: 2 quebrados (o formulário de contato não enviava e o link "áreas de atuação" levava a uma página vazia), 6 confusos e 3 feios. Ela mandou consertar os 2 quebrados naquela tarde, e deixou os outros 9 para uma conversa com quem fez o site.</p>
+      <div class="qerr">
+        <p class="qk">Erro comum</p>
+        <p class="qerr-txt"><b>Deixar a IA consertar no mesmo fôlego em que encontra.</b> Parece eficiente, mas você perde a lista crua e não tem como saber se o conserto criou um problema novo. O pedido separa as duas etapas de propósito: primeiro a lista completa, depois "vai", depois um item por vez com a prova de que aquele passo agora funciona. Se a IA começar a consertar sozinha, diga "pare, só a lista".</p>
+      </div>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="ferramenta" data-versao="ChatGPT em modo agente · Claude com extensão de navegador, set/2026">
+      <h2><span class="n">04</span> O limite honesto: acha o que está quebrado, não diz se vende</h2>
+      <p>Este teste encontra o que está quebrado, confuso e feio. Ele não diz se a sua oferta convence ninguém a comprar. Não é um teste de segurança contra invasão, nem um teste de quantas pessoas o site aguenta ao mesmo tempo. Quando for contar para alguém o que fez, diga "teste de cliente", nunca "teste de carga" ou "auditoria de segurança", a menos que tenha feito isso de fato.</p>
+      <p>O dentista Marcos, depois de consertar o botão do celular, quis saber se o site "estava bom para vender". A resposta honesta é: agora ele não impede ninguém de agendar. Se as pessoas vão querer agendar, isso depende do preço, da localização, da foto da clínica e de coisas que nenhum teste de navegação mede. Saber o que a ferramenta não faz é o que permite confiar no que ela faz.</p>
+      <div class="quiz" data-answer="b">
+        <p class="qk">Teste-se</p><p class="q">Depois de rodar o teste de cliente e consertar os itens quebrados, qual destas frases você pode dizer com honestidade?</p>
+        <button class="opt" data-k="a" data-fb="Não. Convencer depende de oferta, preço e confiança, e este teste não mede nada disso.">"Meu site agora converte melhor."</button>
+        <button class="opt" data-k="b" data-fb="Sim. É exatamente o que o teste mede: um cliente de primeira viagem consegue chegar do início ao fim do objetivo, no computador e no celular, sem travar.">"Um cliente novo consegue agendar no computador e no celular."</button>
+        <button class="opt" data-k="c" data-fb="Não. Segurança contra invasão é outro tipo de teste, feito por outro tipo de profissional.">"Meu site está seguro contra invasões."</button>
+        <p class="qfb"></p>
+      </div>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p4" data-mode="prompt">
+      <p class="pk">Pratique agora <span class="pcount">0/5 feito</span></p>
+      <h3 class="ph">Mande a IA tentar ser seu cliente e receba a lista crua</h3>
+      <p class="pgoal">Sair com a lista numerada, do pior para o melhor, separada em quebrado, confuso e feio. Cerca de 15 minutos; a IA trabalha sozinha na maior parte do tempo.</p>
+      <p class="psafe">A IA só navega, clica e preenche formulários com dados de teste. Ela não compra, não paga e não conserta nada até você dizer "vai". Se o seu site cria um cadastro quando alguém preenche o formulário, vai aparecer um "Maria Teste" na sua lista: apague depois. Se você não tem site, use a página que seu cliente mais usa para chegar até você: o link de agendamento, a página do Instagram ou a página do Google.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Você é um cliente de primeira viagem. Nunca viu este site. Aja como uma pessoa real, não como um técnico de testes.
+
+Site: &lt;endereço do seu site&gt;
+Seu objetivo: &lt;o que um cliente deveria conseguir fazer, por exemplo: agendar uma avaliação / pedir um orçamento / marcar uma visita&gt;
+
+Percorra a jornada inteira no computador, e depois de novo numa tela do tamanho de um celular:
+1. Chegue na página inicial. Diga em voz alta o que você acha que este negócio faz, em até 5 segundos. Se não conseguir dizer, essa é a descoberta número 1.
+2. Tente cumprir o objetivo. Clique onde uma pessoa normal clicaria. Preencha os formulários com dados realistas de teste (nome "Maria Teste", e-mail inventado). Erre um campo de propósito (e-mail errado, campo vazio) e anote o que acontece.
+3. Siga todos os links do topo e do rodapé. Relate os que estão quebrados, lentos ou levam para um lugar surpreendente.
+4. Termine o objetivo. Confirme que o resultado ficou salvo de verdade: o pedido existe? a confirmação chegou? o cadastro foi criado?
+
+Relate como uma lista numerada, do pior para o melhor. Para cada item: o que você fez, o que esperava, o que aconteceu de fato, uma imagem da tela e como repetir o problema em uma linha. Separe "quebrado" de "confuso" de "feio". Não conserte nada ainda. Quero as descobertas cruas primeiro.
+
+Depois, só quando eu disser "vai", conserte os itens quebrados um de cada vez e repita exatamente o passo que falhou para provar que está resolvido.</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Abra a IA num modo que consiga navegar em sites (modo agente no ChatGPT, ou a extensão de navegador do Claude). Cole o pedido com o endereço do seu site e o objetivo.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Deixe trabalhar. Se ela perguntar permissão para abrir uma página ou preencher um formulário, autorize. Se começar a consertar algo, diga "pare, só a lista".</label></li>
+        <li><label><input type="checkbox" data-ptask="3"> Leia a resposta dos cinco segundos. Se a IA não soube dizer o que o seu negócio faz, esse é o seu item número um, antes de qualquer botão.</label></li>
+        <li><label><input type="checkbox" data-ptask="4"> Confira a lista: numerada, do pior para o melhor, com as três gavetas. Cada item quebrado tem imagem da tela e a linha "como repetir"? Se não, peça.</label></li>
+        <li><label><input type="checkbox" data-ptask="5"> Escolha um item quebrado e diga "vai, só o item N". Você deve ver o conserto e, em seguida, a repetição do passo que falhou, agora funcionando.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de ver o seu site com os olhos de quem nunca esteve nele. A lista que ficou é o que separa um site que existe de um site que funciona.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> o circuito de críticos: quem constrói entrega a três críticos separados, com memória limpa. Só quando os três dizem sim o trabalho passa; qualquer não volta para quem construiu, com a maior falha nomeada."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="14" y="80" width="56" height="40" rx="6" stroke="#7CE0C6" stroke-width="2"/><text x="22" y="104" font-family="monospace" font-size="8" fill="#7CE0C6">constrói</text>
+        <path d="M70 92 L120 44 M70 100 L120 100 M70 108 L120 156" stroke="#948DA6" stroke-width="1.2"/>
+        <g stroke="#F2B45C" stroke-width="1.5"><rect x="122" y="30" width="60" height="28" rx="5"/><rect x="122" y="86" width="60" height="28" rx="5"/><rect x="122" y="142" width="60" height="28" rx="5"/></g>
+        <g font-family="monospace" font-size="7" fill="#F2B45C"><text x="128" y="48">objetivo?</text><text x="128" y="104">padrão?</text><text x="128" y="160">referência?</text></g>
+        <g font-family="monospace" font-size="8" fill="#7CE0C6"><text x="190" y="48">sim</text><text x="190" y="104">sim</text></g>
+        <text x="190" y="160" font-family="monospace" font-size="8" fill="#E0736F">não</text>
+        <path d="M200 166 Q200 190 42 190 Q30 190 30 124" stroke="#E0736F" stroke-width="1.2" stroke-dasharray="3 3" fill="none"/>
+        <path d="M26 130 L30 124 L34 130" stroke="#E0736F" stroke-width="1.2" fill="none"/>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> a jornada do cliente em quatro paradas: entender em 5 segundos, tentar o objetivo (com um erro de propósito), seguir todos os links, confirmar que ficou salvo. A mesma linha roda duas vezes: tela grande e tela de celular."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <path d="M20 60 L200 60" stroke="#948DA6" stroke-width="1.5"/>
+        <path d="M20 140 L200 140" stroke="#948DA6" stroke-width="1.5"/>
+        <g fill="#7CE0C6"><circle cx="36" cy="60" r="6"/><circle cx="90" cy="60" r="6"/><circle cx="144" cy="60" r="6"/><circle cx="196" cy="60" r="6"/></g>
+        <g fill="#7CE0C6"><circle cx="36" cy="140" r="6"/><circle cx="90" cy="140" r="6"/><circle cx="144" cy="140" r="6"/><circle cx="196" cy="140" r="6"/></g>
+        <g font-family="monospace" font-size="7" fill="#C7C2D0"><text x="22" y="46">5 seg</text><text x="70" y="46">objetivo</text><text x="132" y="46">links</text><text x="180" y="46">salvou?</text></g>
+        <rect x="14" y="20" width="60" height="14" rx="2" stroke="#948DA6" stroke-width="1"/><text x="18" y="30" font-family="monospace" font-size="7" fill="#948DA6">computador</text>
+        <rect x="14" y="160" width="40" height="14" rx="2" stroke="#948DA6" stroke-width="1"/><text x="18" y="170" font-family="monospace" font-size="7" fill="#948DA6">celular</text>
+        <path d="M96 66 L104 78" stroke="#F2B45C" stroke-width="1.5"/><text x="100" y="90" font-family="monospace" font-size="7" fill="#F2B45C">1 erro de propósito</text>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> o relatório em três gavetas: quebrado em cima, confuso no meio, feio embaixo. Dentro de cada gaveta, do pior para o melhor. A seta 'consertar' só sai da gaveta de cima, e só depois do seu 'vai'."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="14" y="16" width="150" height="46" rx="5" stroke="#E0736F" stroke-width="1.5"/><text x="22" y="32" font-family="monospace" font-size="8" fill="#E0736F">quebrado</text>
+        <g stroke="#E0736F" stroke-width="1"><path d="M22 42 h80 M22 52 h60"/></g>
+        <rect x="14" y="72" width="150" height="56" rx="5" stroke="#F2B45C" stroke-width="1.5"/><text x="22" y="88" font-family="monospace" font-size="8" fill="#F2B45C">confuso</text>
+        <g stroke="#F2B45C" stroke-width="1"><path d="M22 98 h90 M22 108 h70 M22 118 h50"/></g>
+        <rect x="14" y="138" width="150" height="46" rx="5" stroke="#948DA6" stroke-width="1.5"/><text x="22" y="154" font-family="monospace" font-size="8" fill="#948DA6">feio</text>
+        <g stroke="#948DA6" stroke-width="1"><path d="M22 164 h60 M22 174 h40"/></g>
+        <path d="M164 39 L196 39" stroke="#7CE0C6" stroke-width="2"/><path d="M190 33 L196 39 L190 45" stroke="#7CE0C6" stroke-width="2" fill="none"/>
+        <text x="170" y="30" font-family="monospace" font-size="7" fill="#7CE0C6">"vai"</text>
+        <text x="172" y="58" font-family="monospace" font-size="7" fill="#7CE0C6">1 por vez</text>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> o que o teste de cliente cobre (o círculo cheio) e o que fica fora dele: se a oferta convence, se o site resiste a invasão, quantas pessoas ele aguenta. Saber a borda é o que permite confiar no miolo."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <circle cx="90" cy="100" r="60" stroke="#7CE0C6" stroke-width="2" fill="#7CE0C6" fill-opacity=".08"/>
+        <g font-family="monospace" font-size="8" fill="#7CE0C6"><text x="58" y="88">quebrado</text><text x="62" y="104">confuso</text><text x="72" y="120">feio</text></g>
+        <g font-family="monospace" font-size="8" fill="#6C6580"><text x="158" y="60">convence?</text><text x="158" y="100">invasão?</text><text x="158" y="140">aguenta?</text></g>
+        <g stroke="#6C6580" stroke-width="1" stroke-dasharray="2 3"><path d="M150 56 L156 56 M150 96 L156 96 M150 136 L156 136"/></g>
+        <text x="40" y="184" font-family="monospace" font-size="8" fill="#948DA6">diga "teste de cliente"</text>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Grife qualquer trecho para virar um cartão de revisão.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>Quem construiu não deve ser quem avalia. O circuito de críticos entrega o trabalho a três avaliadores com memória limpa, e só passa com três sins.</li>
+    <li>No teste de cliente, a IA age como pessoa de primeira viagem, não como técnico: cinco segundos para entender, tentar o objetivo, errar um campo de propósito, seguir todo link, conferir que salvou. No computador e no celular.</li>
+    <li>O relatório vem cru, do pior para o melhor, em três gavetas, com imagem da tela e linha de repetição. Consertar só depois do seu "vai", um item por vez, com prova.</li>
+    <li>O teste mostra o que impede o cliente de chegar ao fim. Não mede se ele quer comprar, nem segurança, nem quantas pessoas o site aguenta.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de enxergar o seu site pelos olhos de alguém que nunca esteve nele, e tem uma lista do que fazer.</p>
+  <p class="na-action">Nos próximos 15 minutos, mande a lista crua para quem cuida do seu site (ou para você mesmo, no e-mail) com uma linha só: "os itens da gaveta 'quebrado' primeiro". A ordem da lista já é a prioridade.</p>
+  <p class="na-hook">Na próxima aula, você resolve o que trava quem posta: cada post parece feito por uma pessoa diferente. Uma referência que você admira vira uma família visual de três cartões.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#aula-3">← aula 3</a><a href="#aula-5">próxima: uma família visual →</a></nav>
+<footer>Aula 4 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-4">
+[
+  {"front":"Você vai encomendar um site e a IA pergunta 'qual referência?'. Você responde 'algo moderno e clean'. O que vai dar errado no circuito de críticos?","back":"O crítico de referência não tem com o que comparar e aprova tudo na primeira rodada. Referência tem que ser um site específico que você consegue abrir, do qual se extraem mecanismos checáveis."},
+  {"front":"A IA rodou o teste no computador, achou tudo certo e parou. Um corretor aceitou o relatório. O que ele deixou passar?","back":"A segunda passagem, em tela de celular. É onde a maioria dos clientes chega e onde botões e formulários mais se escondem. O pedido exige as duas telas."},
+  {"front":"No meio do teste, a IA escreve 'encontrei o formulário quebrado e já corrigi'. Qual é a sua resposta imediata, e por quê?","back":"'Pare, só a lista.' Consertar durante a descoberta apaga a lista crua e impede provar que o conserto não criou problema novo. Primeiro a lista inteira, depois 'vai', depois um item por vez."},
+  {"front":"O relatório trouxe 'cor do botão diferente do logotipo' como item 1 e 'formulário não envia' como item 7. O que está errado?","back":"A ordem. O pedido exige do pior para o melhor e três gavetas: quebrado, confuso, feio. Formulário que não envia é quebrado e vai para o topo; cor de botão é feio e vai para o fim."},
+  {"front":"Uma dentista rodou o teste, consertou tudo e quer escrever no Instagram 'site auditado e 100% seguro'. O que você diz a ela?","back":"Que ela pode dizer 'testado como cliente: qualquer pessoa consegue agendar no computador e no celular'. Segurança contra invasão é outro teste que ela não fez."}
+]
+</script>
+
+<!-- COMPLETUDE aula-4 | tipo=FERRAMENTA | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="20min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  Marcos dentista (s1, s4) · Paulo corretor (s2) · Regina contadora (s3) (4/4)
+  [OK] apoio-visual       fig 1 circuito de críticos · fig 2 jornada em duas telas · fig 3 três gavetas · fig 4 borda do teste (4/4)
+  [OK] practice           .practice[data-mode="prompt"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal "cerca de 15 minutos" (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-4"> presente (5 cartões: diagnóstico, diagnóstico, decisão, diagnóstico, aplicação)
+  [OK] anti-duplicacao    substring ≥6 palavras: nenhuma · forma: 5/5 · operação: recap afirma, cartões diagnosticam/decidem em cenário
+  [N/A] teste-se-FUND     aula é FERRAMENTA (obrigação não se aplica); teste-se opcional presente (1 pergunta, step 04)
+  Pool: qsteps (obrig.) + qerr (obrig.) + quiz (opcional) + cartões = 4 tipos (teto 5). Densidade: quadros em s1 e s3, nenhum adjacente. data-versao em 4/4 steps.
+-->
+</section>
+
+<!-- ===== AULA 5 · FERRAMENTA · Pedido 04 ===== -->
+<section class="view" id="v-aula-5" data-aula="5" data-tempo="18min">
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Aula 5 de 6 · Pedido 04</p>
+    <h1>Uma família visual<br>para os seus <em>posts</em></h1>
+    <p class="promise">Ao fim desta aula você tem três cartões de rede social que parecem feitos pela mesma mão, criados a partir de uma única referência que você admira, e prontos para postar.</p>
+    <p class="why">Seus posts não parecem seus. Cada um sai de um jeito: fonte diferente, cor diferente, espaçamento diferente. Quem rola a tela não reconhece você. Este pedido pega uma referência que você acha bonita, descobre por que ela funciona em termos que dá para checar, e transforma isso numa cartela que faz o segundo e o terceiro cartão saírem iguais ao primeiro.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <ellipse cx="150" cy="212" rx="100" ry="8" fill="#000" opacity=".25"/>
+    <rect x="40" y="30" width="90" height="110" rx="4" stroke="#F2B45C" stroke-width="2" fill="#1a1824" stroke-dasharray="6 4"/>
+    <rect x="52" y="44" width="30" height="8" rx="2" fill="#F2B45C"/><rect x="52" y="60" width="66" height="4" rx="2" fill="#6C6580"/><rect x="52" y="70" width="50" height="4" rx="2" fill="#6C6580"/><circle cx="110" cy="120" r="8" stroke="#F2B45C" stroke-width="2"/>
+    <text x="48" y="156" font-family="monospace" font-size="9" fill="#F2B45C">molde</text>
+    <g>
+      <rect x="150" y="60" width="60" height="74" rx="3" stroke="#948DA6" stroke-width="1.5" fill="#15131d"/><rect x="158" y="70" width="20" height="6" rx="1" fill="#7CE0C6"/><rect x="158" y="82" width="44" height="3" rx="1" fill="#6C6580"/><rect x="158" y="89" width="34" height="3" rx="1" fill="#6C6580"/><circle cx="196" cy="120" r="5" stroke="#7CE0C6" stroke-width="1.5"/>
+      <rect x="180" y="86" width="60" height="74" rx="3" stroke="#948DA6" stroke-width="1.5" fill="#15131d"/><rect x="188" y="96" width="20" height="6" rx="1" fill="#7CE0C6"/><rect x="188" y="108" width="44" height="3" rx="1" fill="#6C6580"/><rect x="188" y="115" width="34" height="3" rx="1" fill="#6C6580"/><circle cx="226" cy="146" r="5" stroke="#7CE0C6" stroke-width="1.5"/>
+      <rect x="210" y="112" width="60" height="74" rx="3" stroke="#948DA6" stroke-width="1.5" fill="#15131d"/><rect x="218" y="122" width="20" height="6" rx="1" fill="#7CE0C6"/><rect x="218" y="134" width="44" height="3" rx="1" fill="#6C6580"/><rect x="218" y="141" width="34" height="3" rx="1" fill="#6C6580"/><circle cx="256" cy="172" r="5" stroke="#7CE0C6" stroke-width="1.5"/>
+    </g>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">01</span> Uma referência que você admira, desmontada em cinco mecanismos</h2>
+      <p>O pedido começa com você mostrando uma coisa só: uma imagem, um post, uma tela que você acha bonita. A IA tem que dizer, em cinco linhas, por que aquilo é bom. E aqui está a exigência: <span class="gterm" tabindex="0" data-def="Uma característica que dá para medir olhando: o título é cinco vezes maior que o texto; há uma cor de destaque só; nada se mexe em menos de meio segundo. O contrário de 'parece elegante'.">mecanismos</span>, não adjetivos. "Fica elegante" não serve. "O título é quatro vezes maior que o texto, há uma única cor de destaque usada no máximo duas vezes, e 40% do espaço está vazio" serve, porque você consegue conferir olhando.</p>
+      <p>A contadora Regina escolheu um post de uma colega famosa no ramo, cheio de número grande e pouca coisa em volta. A IA desmontou: número em fonte enorme, uma frase curta embaixo, fundo escuro, um único tom de verde, margens largas. Cinco linhas. Pela primeira vez a Regina soube dizer o que gostava, em vez de "é bonito".</p>
+      <div class="qsteps">
+        <p class="qsk">Como escolher e usar a referência</p>
+        <ol>
+          <li>Escolha <b>uma</b> peça só: um post, uma tela, um cartaz. Não um perfil inteiro.</li>
+          <li>Escolha algo que você <b>abriria</b> se visse na rua, não algo que "todo mundo acha bonito".</li>
+          <li>Mande a imagem ou o endereço e peça <b>cinco linhas de mecanismos</b>: tamanhos, espaços, uma cor, o que se mexe e em quanto tempo.</li>
+          <li>Se vier um adjetivo ("moderno", "limpo"), devolva: "isso é adjetivo; me dê o mecanismo".</li>
+          <li>Deixe claro que é <b>inspiração, não cópia</b>: nada de texto, logotipo ou foto da referência nos seus cartões.</li>
+        </ol>
+      </div>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">02</span> Um cartão primeiro, depois a cartela que faz os outros iguais</h2>
+      <p>Com os cinco mecanismos na mão, a IA constrói um cartão só, com conteúdo real seu, no tamanho de post (vertical, para Instagram). Ele vem como um arquivo que abre no navegador, e você pode pedir também uma imagem para postar direto. O cartão tem uma pequena animação de entrada e outra ao tocar, e nada se mexe em menos de meio segundo, para não parecer nervoso.</p>
+      <p>Aí vem a parte que transforma um cartão bonito numa família: a IA extrai dele a <span class="gterm" tabindex="0" data-def="A lista das decisões visuais do primeiro cartão: as cores exatas, os tamanhos de letra, os espaços entre as coisas e a velocidade do que se mexe. Os próximos cartões são feitos a partir dela, não do zero.">cartela</span>. Cores exatas, tamanhos de letra, espaçamentos, velocidade da animação. É o molde. E com o molde ela faz mais dois cartões: um de número em destaque e um de citação. Três peças, uma origem.</p>
+      <p>O dentista Marcos saiu com três cartões: uma dica de cuidado ("troque a escova a cada 3 meses"), um número ("87% das dores de dente começam sem doer") e um depoimento de paciente. Postados na mesma semana, pela primeira vez os três pareciam vir da mesma clínica.</p>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">03</span> A prova da família: uma revisão que muda os três de uma vez</h2>
+      <p>O último passo do pedido é o teste de verdade. Você pede uma mudança só, por exemplo "troque o verde por azul-marinho" ou "aumente um pouco o texto". Se a família existe, a IA muda a cartela e os três cartões mudam juntos, sem quebrar nada. Se ela precisar mexer em cada cartão separadamente, não havia família, havia três desenhos parecidos.</p>
+      <p>O corretor Paulo pediu "coloque o nome da imobiliária menor, no canto". Os três cartões mudaram na mesma resposta. Ele guardou a cartela numa pasta e hoje, toda vez que quer um cartão novo, cola a cartela e o conteúdo, e o cartão sai da família.</p>
+      <div class="qerr">
+        <p class="qk">Erro comum</p>
+        <p class="qerr-txt"><b>Pedir os três cartões de uma vez, sem passar pela cartela.</b> A IA entrega três peças bonitas que parecem feitas por três pessoas, porque cada uma foi decidida do zero. A ordem do pedido é a proteção: um cartão, depois a cartela, depois os outros dois a partir dela. Se você pulou a cartela, o teste da revisão única vai revelar: os três não mudam juntos.</p>
+      </div>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p5" data-mode="prompt">
+      <p class="pk">Pratique agora <span class="pcount">0/5 feito</span></p>
+      <h3 class="ph">Transforme uma referência em três cartões da mesma família</h3>
+      <p class="pgoal">Sair com três cartões que parecem irmãos, a cartela guardada e uma revisão aplicada nos três de uma vez. Cerca de 15 minutos.</p>
+      <p class="psafe">Nada é postado. Nenhuma conta sua é conectada. A referência serve só de inspiração: o pedido proíbe copiar texto, logotipo ou foto dela. Se algum cartão sair parecido demais com a referência, peça para afastar. Os arquivos ficam no seu computador e você decide o que publica.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Eu faço conteúdo para o Instagram sobre &lt;seu ramo: contabilidade para pequenas empresas / saúde bucal / imóveis na sua cidade&gt;. Monte para mim um pequeno sistema visual que eu consiga postar.
+
+Referência: &lt;cole a imagem ou o endereço de um post que você admira&gt;
+Use a referência só como inspiração. Não copie texto, logotipo, foto nem nome dela.
+
+Passo 1 — desmonte a referência. Em cinco linhas, me diga o que a faz boa: tamanhos de letra, espaçamentos, a única cor de destaque, o que se mexe e em quanto tempo. Mecanismos que eu consiga conferir olhando, não adjetivos.
+
+Passo 2 — construa UM cartão que siga esses mecanismos, como um arquivo que eu abro no navegador. Conteúdo real meu: &lt;uma dica curta do seu ramo&gt;. Tamanho vertical de post (4:5). Uma animação de entrada e uma ao tocar. Nada se mexe em menos de meio segundo. Entregue também uma imagem do cartão para eu postar direto.
+
+Passo 3 — transforme em sistema. Extraia do cartão a cartela: as cores exatas, os tamanhos de letra, os espaçamentos e as velocidades de animação, num arquivo separado, para que o próximo cartão saia idêntico em estilo. Depois construa mais dois cartões a partir da mesma cartela: um cartão de número em destaque (&lt;um dado do seu ramo&gt;) e um cartão de citação (&lt;uma frase sua ou de um cliente&gt;).
+
+Passo 4 — eu vou pedir uma revisão. Aplique nos três cartões de uma vez, mudando só a cartela, sem quebrar nada.
+
+Entregue: os três cartões (arquivo e imagem de cada um), a cartela, e duas linhas me dizendo como abrir os arquivos com dois cliques.</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Escolha uma referência só e cole o pedido com ela. Se a primeira resposta trouxer adjetivos no passo 1, devolva: "isso é adjetivo, me dê o mecanismo".</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Abra o primeiro cartão com dois cliques (ou veja a imagem). Confira contra as cinco linhas: a cor única está lá? o título é bem maior que o texto? Se não bater, aponte a linha que falhou.</label></li>
+        <li><label><input type="checkbox" data-ptask="3"> Peça para ver a cartela e salve numa pasta chamada "cartela". É o seu molde daqui para frente.</label></li>
+        <li><label><input type="checkbox" data-ptask="4"> Abra os três cartões lado a lado. Você deve ver a mesma cor, a mesma letra, o mesmo espaço em volta. Se um destoar, peça para refazer aquele a partir da cartela.</label></li>
+        <li><label><input type="checkbox" data-ptask="5"> Peça uma revisão só ("troque a cor de destaque por &lt;cor&gt;"). Os três devem mudar na mesma resposta. Se a IA mexer em um de cada vez, a família não existia: peça para refazer a partir da cartela.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de sair de posts que pareciam de três pessoas para três cartões que parecem de uma. A cartela na pasta é o que garante que o quarto, o quinto e o vigésimo também vão parecer.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> uma referência com cinco chamadas de mecanismo: título muito maior que o texto, uma única cor de destaque, margem larga, o que se mexe e em quanto tempo. Cada chamada é algo que dá para medir olhando."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="30" y="20" width="110" height="140" rx="4" stroke="#948DA6" stroke-width="1.5" fill="#15131d"/>
+        <rect x="46" y="40" width="50" height="14" rx="2" fill="#ECE6D9"/><rect x="46" y="62" width="76" height="3" rx="1" fill="#6C6580"/><rect x="46" y="70" width="60" height="3" rx="1" fill="#6C6580"/>
+        <circle cx="120" cy="136" r="7" fill="#7CE0C6"/>
+        <g stroke="#F2B45C" stroke-width="1"><path d="M96 47 L160 34"/><path d="M122 66 L160 66"/><path d="M127 136 L160 110"/><path d="M40 150 L160 150"/><path d="M36 30 L36 20 L160 20"/></g>
+        <g font-family="monospace" font-size="7" fill="#F2B45C"><text x="162" y="37">título 4×</text><text x="162" y="69">texto curto</text><text x="162" y="113">1 cor só</text><text x="162" y="153">margem 40%</text><text x="162" y="23">mexe em 0,5s</text></g>
+        <text x="30" y="184" font-family="monospace" font-size="8" fill="#948DA6">mecanismo, não adjetivo</text>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> o caminho: um cartão nasce dos mecanismos; dele sai a cartela (cores, letras, espaços, velocidades); e da cartela saem os outros dois. Nenhum cartão novo nasce do zero."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="14" y="60" width="44" height="56" rx="3" stroke="#7CE0C6" stroke-width="2" fill="#15131d"/><rect x="20" y="68" width="18" height="6" rx="1" fill="#7CE0C6"/><rect x="20" y="80" width="30" height="3" fill="#6C6580"/>
+        <text x="14" y="130" font-family="monospace" font-size="7" fill="#7CE0C6">cartão 1</text>
+        <path d="M58 88 L84 88" stroke="#948DA6" stroke-width="1.5"/><path d="M78 82 L84 88 L78 94" stroke="#948DA6" stroke-width="1.5" fill="none"/>
+        <rect x="86" y="56" width="52" height="64" rx="4" stroke="#F2B45C" stroke-width="2"/>
+        <g><rect x="92" y="62" width="10" height="10" fill="#7CE0C6"/><rect x="104" y="62" width="10" height="10" fill="#ECE6D9"/><rect x="116" y="62" width="10" height="10" fill="#15131d" stroke="#6C6580"/></g>
+        <text x="92" y="86" font-family="monospace" font-size="6" fill="#C7C2D0">Aa 32 · 14</text><text x="92" y="98" font-family="monospace" font-size="6" fill="#C7C2D0">espaço 24</text><text x="92" y="110" font-family="monospace" font-size="6" fill="#C7C2D0">0,5 s</text>
+        <text x="94" y="134" font-family="monospace" font-size="7" fill="#F2B45C">cartela</text>
+        <path d="M138 78 L164 52 M138 98 L164 124" stroke="#948DA6" stroke-width="1.5"/>
+        <rect x="166" y="24" width="40" height="52" rx="3" stroke="#948DA6" stroke-width="1.5" fill="#15131d"/><text x="172" y="52" font-family="serif" font-size="14" fill="#ECE6D9">87%</text>
+        <rect x="166" y="112" width="40" height="52" rx="3" stroke="#948DA6" stroke-width="1.5" fill="#15131d"/><text x="172" y="140" font-family="serif" font-size="16" fill="#ECE6D9">“ ”</text>
+        <text x="160" y="184" font-family="monospace" font-size="7" fill="#948DA6">cartões 2 e 3</text>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> uma única mudança feita na cartela (a cor de destaque) se propaga para os três cartões ao mesmo tempo. Se fosse preciso mexer em cada cartão, não haveria família."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <rect x="80" y="14" width="60" height="30" rx="4" stroke="#F2B45C" stroke-width="2"/><text x="88" y="33" font-family="monospace" font-size="8" fill="#F2B45C">cartela</text>
+        <rect x="128" y="8" width="18" height="12" rx="2" fill="#7CE0C6"/><path d="M146 14 L158 14" stroke="#948DA6" stroke-width="1"/><rect x="158" y="8" width="18" height="12" rx="2" fill="#F2B45C"/>
+        <text x="150" y="34" font-family="monospace" font-size="6" fill="#948DA6">1 mudança</text>
+        <path d="M110 44 L40 90 M110 44 L110 90 M110 44 L180 90" stroke="#948DA6" stroke-width="1.2"/>
+        <g stroke="#948DA6" stroke-width="1.5" fill="#15131d"><rect x="16" y="92" width="48" height="62" rx="3"/><rect x="86" y="92" width="48" height="62" rx="3"/><rect x="156" y="92" width="48" height="62" rx="3"/></g>
+        <g fill="#F2B45C"><circle cx="52" cy="140" r="5"/><circle cx="122" cy="140" r="5"/><circle cx="192" cy="140" r="5"/></g>
+        <g fill="#6C6580"><rect x="22" y="100" width="24" height="5"/><rect x="92" y="100" width="24" height="5"/><rect x="162" y="100" width="24" height="5"/></g>
+        <text x="56" y="180" font-family="monospace" font-size="8" fill="#7CE0C6">os três mudam juntos</text>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Grife qualquer trecho para virar um cartão de revisão.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>Tudo começa em uma referência só, desmontada em cinco mecanismos que dá para conferir olhando. Adjetivo não serve.</li>
+    <li>Nasce um cartão, dele sai a cartela, e da cartela saem os outros dois. A ordem é o que faz três peças parecerem uma família.</li>
+    <li>A prova é a revisão única: uma mudança na cartela move os três ao mesmo tempo. Se não move, eram três desenhos parecidos.</li>
+    <li>A referência é inspiração. Texto, logotipo e foto dela ficam fora dos seus cartões.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de ganhar uma identidade visual que se repete sozinha, sem precisar de designer para cada post.</p>
+  <p class="na-action">Nos próximos 15 minutos, escreva o conteúdo do quarto cartão (uma dica, um número ou uma frase) e peça à IA que o faça a partir da cartela salva. Se sair da família na primeira tentativa, o sistema está funcionando.</p>
+  <p class="na-hook">Na última aula, você resolve o que ninguém gosta de olhar: onde o seu dinheiro vaza. A IA lê seus extratos e seus e-mails e prova cada vazamento com o comprovante.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#aula-4">← aula 4</a><a href="#aula-6">próxima: onde o dinheiro vaza →</a></nav>
+<footer>Aula 5 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-5">
+[
+  {"front":"A IA respondeu ao passo 1 com 'design limpo, moderno e profissional'. O que você devolve, e o que espera receber no lugar?","back":"'Isso é adjetivo; me dê o mecanismo.' Espera coisas mensuráveis: título quatro vezes o texto, uma cor de destaque só, 40% de espaço vazio, animação em meio segundo."},
+  {"front":"Um corretor pediu 'três posts bonitos para esta semana' de uma vez. Chegaram três peças agradáveis. Que teste revela se são uma família, e qual é o resultado provável?","back":"Pedir uma revisão única (trocar a cor de destaque). Como não passaram pela cartela, a IA vai mexer em cada um separadamente e eles não mudam juntos. Eram três desenhos parecidos, não uma família."},
+  {"front":"Você precisa de um cartão novo dois meses depois. Qual é o caminho mais curto para ele sair da mesma família?","back":"Colar a cartela salva e o conteúdo novo. O cartão nasce da cartela, não do zero, e não precisa da referência original de novo."},
+  {"front":"Uma contadora achou um post perfeito de uma concorrente e quer 'igualzinho, só com meu nome'. Qual é o problema e o que ela pede em vez disso?","back":"Isso é cópia, não inspiração. Ela pede os cinco mecanismos que fazem o post funcionar e constrói o próprio cartão a partir deles, com o conteúdo dela e sem texto, logotipo ou foto da referência."},
+  {"front":"O segundo cartão saiu com um tom de verde um pouco diferente do primeiro. O que isso indica e o que você pede?","back":"Que ele não foi feito a partir da cartela (ou a cartela não tem a cor exata). Peça para refazer o cartão a partir da cartela, e confira se a cartela registra o código exato da cor."}
+]
+</script>
+
+<!-- COMPLETUDE aula-5 | tipo=FERRAMENTA | steps=3
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="18min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  Regina contadora (s1) · Marcos dentista (s2) · Paulo corretor (s3) (3/3)
+  [OK] apoio-visual       fig 1 referência com chamadas · fig 2 caminho cartão → cartela → cartões · fig 3 uma mudança propaga (3/3)
+  [OK] practice           .practice[data-mode="prompt"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal "cerca de 15 minutos" (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-5"> presente (5 cartões: decisão, diagnóstico, aplicação, decisão, diagnóstico)
+  [OK] anti-duplicacao    substring ≥6 palavras: nenhuma · forma: 5/5 · operação: recap afirma, cartões aplicam/diagnosticam em cenário
+  [N/A] teste-se-FUND     aula é FERRAMENTA (obrigação não se aplica); sem teste-se opcional
+  Pool: qsteps (obrig.) + qerr (obrig.) + cartões = 3 tipos (teto 5). Densidade: quadros em s1 e s3, s2 é prosa pura entre eles. data-versao em 3/3 steps.
+-->
+</section>
+
+<!-- ===== AULA 6 · PRÁTICA/INTEGRAÇÃO · Pedido 05 ===== -->
+<section class="view" id="v-aula-6" data-aula="6" data-tempo="22min">
+<header class="hero"><div class="hero-inner">
+  <div>
+    <p class="kicker">Aula 6 de 6 · Pedido 05</p>
+    <h1>Onde o dinheiro<br><em>vaza</em></h1>
+    <p class="promise">Ao fim desta aula você tem uma tabela dos seus vazamentos de dinheiro, do maior para o menor, cada linha com o comprovante, e nenhum cancelamento feito sem você decidir.</p>
+    <p class="why">Ninguém gosta de abrir o extrato e ler linha por linha. Então as assinaturas que você não usa continuam, a ferramenta que faz o mesmo que outra continua, e o que você jura que é prioridade nunca recebe um real. Este pedido faz a leitura chata por você, mas não aceita nada sem prova: cada vazamento vem com a linha do extrato e o e-mail que confirma. E ele não cancela nada. Quem decide é você.</p>
+    <p class="cue"><span class="arw">↓</span> role para estudar</p>
+  </div>
+  <div class="herofig"><svg viewBox="0 0 300 240" fill="none" aria-hidden="true">
+    <ellipse cx="150" cy="218" rx="90" ry="8" fill="#000" opacity=".25"/>
+    <path d="M40 60 H200 a14 14 0 0 1 14 14 V120" stroke="#948DA6" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <path d="M40 60 H200 a14 14 0 0 1 14 14 V120" stroke="#1a1824" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <rect x="196" y="118" width="36" height="14" rx="3" fill="#948DA6"/>
+    <g fill="#F2B45C"><ellipse cx="214" cy="146" rx="5" ry="7"/><ellipse cx="214" cy="168" rx="5" ry="7" opacity=".8"/><ellipse cx="214" cy="190" rx="5" ry="7" opacity=".6"/></g>
+    <path d="M176 210 h76" stroke="#948DA6" stroke-width="2"/>
+    <ellipse cx="214" cy="210" rx="26" ry="5" fill="#F2B45C" opacity=".35"/>
+    <rect x="60" y="120" width="70" height="90" rx="4" stroke="#7CE0C6" stroke-width="2" fill="#15131d"/>
+    <g stroke="#7CE0C6" stroke-width="1.5"><path d="M70 136 h50 M70 150 h50 M70 164 h36 M70 178 h44 M70 192 h28"/></g>
+    <circle cx="118" cy="164" r="6" stroke="#F2B45C" stroke-width="2"/>
+    <path d="M96 92 h8 M100 88 v8" stroke="#6C6580" stroke-width="1.5"/>
+  </svg></div>
+</div></header>
+
+<div class="layout">
+  <div class="col">
+    <section class="step" data-fig="1" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">01</span> Três tipos de vazamento, e o que você entrega para achá-los</h2>
+      <p>O pedido procura três coisas diferentes. <b>Duplicado</b>: a mesma coisa cobrada duas vezes, ou duas ferramentas que fazem o mesmo serviço. <b>Sem uso</b>: o que você paga e não usa há mais de 60 dias, e a IA procura nos e-mails sinais de acesso ou de uso. <b>Faltando</b>: o que você diz que é prioridade e onde o seu dinheiro discorda do seu plano. O terceiro tipo é o que ninguém procura, e é o que mais ensina.</p>
+      <p>Para isso, você entrega três coisas: o extrato do banco ou do cartão, os últimos 90 dias de e-mail (ou a pasta de comprovantes) e suas prioridades do trimestre em poucas linhas. Sem as prioridades, o terceiro tipo não existe.</p>
+      <p>A contadora Regina, que cobra de todo cliente organização, nunca tinha olhado o próprio extrato assim. Entregou 90 dias de cartão e a lista de prioridades: "crescer em clientes de lucro presumido". A IA achou duas assinaturas de emissor de nota que faziam a mesma coisa, um curso pago em janeiro sem nenhum acesso desde março e zero reais gastos em qualquer coisa ligada à prioridade que ela mesma escreveu. Três tipos, três achados, uma tarde.</p>
+      <div class="mobfig" data-mobfig="1"></div>
+      <button class="readbtn" data-read="s1">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="2" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">02</span> Ler tudo antes de falar, e cada achado com o comprovante</h2>
+      <p>A primeira instrução do pedido é "leia tudo antes de dizer qualquer coisa". A IA monta a lista completa de cobranças recorrentes, de gastos avulsos acima de um valor que você escolhe e de toda assinatura mencionada em e-mail. Só depois começa a apontar. Isso evita o achado precipitado, que aparece na primeira página do extrato e some quando se lê a terceira.</p>
+      <p>Depois vem a regra que dá confiança ao resultado: todo achado vem com o comprovante. A linha exata do extrato, a data, o valor e o e-mail ou outro sinal que sustenta a conclusão. Se a IA não encontrar prova, ela marca "não confirmado" e não chuta. O dentista Marcos recebeu um achado de "sem uso" sobre o programa de agenda da clínica; o comprovante mostrava que os e-mails de acesso eram da recepcionista, não dele. Não era vazamento. Sem o comprovante, ele teria cancelado o programa que a clínica usa todo dia.</p>
+      <div class="qerr">
+        <p class="qk">Erro comum</p>
+        <p class="qerr-txt"><b>Tratar linha marcada como dinheiro economizado.</b> A tabela diz "R$ 2.400 por ano em vazamentos" e você já sente o alívio. Mas uma linha marcada não é um real de volta. Só uma cobrança confirmada, cancelada por você, e que sumiu do extrato seguinte é dinheiro economizado. O pedido separa "confirmado" de "não confirmado" e não deixa a IA cancelar nada por isso mesmo.</p>
+      </div>
+      <div class="mobfig" data-mobfig="2"></div>
+      <button class="readbtn" data-read="s2">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="3" data-kind="ferramenta" data-versao="GPT-6 Astra no ChatGPT, set/2026">
+      <h2><span class="n">03</span> A tabela do maior para o menor, com totais separados</h2>
+      <p>O resultado é uma tabela, do maior vazamento para o menor. Cada linha tem: o vazamento, quanto custa por mês, quanto custa por ano, o comprovante e o que fazer (cancelar, juntar, manter ou começar). No rodapé, dois totais que nunca se misturam: o confirmado e o não confirmado. O "começar" é a coluna do terceiro tipo: o dinheiro que você deveria estar gastando na sua prioridade e não gasta.</p>
+      <p>O corretor Paulo recebeu 9 linhas. As três maiores eram um portal de anúncios que ele não abria desde maio, uma ferramenta de assinatura digital duplicada com a da imobiliária e, na coluna "começar", zero reais em fotos profissionais, embora "anúncios melhores" fosse a primeira prioridade da lista dele. Confirmado: R$ 310 por mês. Não confirmado: R$ 89. Ele soube exatamente em que ordem agir.</p>
+      <div class="mobfig" data-mobfig="3"></div>
+      <button class="readbtn" data-read="s3">marcar como lido</button>
+    </section>
+
+    <section class="step" data-fig="4" data-kind="fundamento">
+      <h2><span class="n">04</span> Rascunhos prontos, nada enviado, e a regra que fecha o curso</h2>
+      <p>O último passo do pedido é a IA escrever os e-mails de cancelamento e o texto da única compra que você deveria fazer, e não enviar nada. Você lê, você decide, você aperta o botão. É a mesma disciplina que atravessou as seis aulas: a IA prepara, a evidência vem junto, a decisão é sua.</p>
+      <p>E aqui o curso fecha onde começou. A regra única vale para os cinco pedidos e para qualquer outro que você inventar: escolha o problema mais difícil que você ainda consegue conferir. Dê à IA os arquivos, as ferramentas e uma definição clara de "pronto". Depois abra o resultado você mesmo. O dentista Marcos resume assim: "eu não entendo como ela faz, e não preciso. Eu entendo o que ela me entrega, porque consigo abrir".</p>
+      <div class="qsteps">
+        <p class="qsk">O que fazer com cada linha da tabela, na ordem</p>
+        <ol>
+          <li>Abra o comprovante da linha. Se não abrir ou não bater, mova para "não confirmado" e siga.</li>
+          <li>Se for "sem uso", confirme você mesmo: tente entrar no serviço. Às vezes quem usa é outra pessoa da equipe.</li>
+          <li>Decida: cancelar, juntar, manter ou começar. Anote a decisão na própria tabela.</li>
+          <li>Use o rascunho da IA, mas <b>envie você</b>. Nada sai da conversa sozinho.</li>
+          <li>Só marque como "economizado" quando a cobrança sumir do extrato seguinte.</li>
+        </ol>
+      </div>
+      <div class="mobfig" data-mobfig="4"></div>
+      <button class="readbtn" data-read="s4">marcar como lido</button>
+    </section>
+
+    <section class="practice" data-practice="p6" data-mode="prompt">
+      <p class="pk">Pratique agora <span class="pcount">0/5 feito</span></p>
+      <h3 class="ph">Encontre seus vazamentos e prove cada um</h3>
+      <p class="pgoal">Sair com a tabela do maior para o menor, com comprovante por linha e os totais confirmado e não confirmado separados. Cerca de 15 minutos, mais o tempo de baixar o extrato.</p>
+      <p class="psafe">Antes de colar o extrato, apague o número da conta e do cartão e troque nomes de pessoas por iniciais. A IA não cancela, não envia e não compra nada: ela só monta a tabela e escreve rascunhos que ficam na conversa. Se não quiser entregar e-mails, pule essa parte: os achados de "sem uso" virão marcados como "não confirmado", e está tudo bem. Comece com 30 dias de extrato se 90 parecer demais.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Faça uma auditoria de para onde vai o meu dinheiro. Encontre os vazamentos. Prove cada um.
+
+Vou te dar: um extrato (banco / cartão / maquininha), meus últimos 90 dias de e-mails (ou a pasta de comprovantes) e minhas prioridades para este trimestre.
+
+Passo 1 — leia tudo antes de dizer qualquer coisa. Monte a lista de toda cobrança recorrente, de todo gasto avulso acima de R$ &lt;150&gt; e de toda assinatura mencionada nos e-mails.
+
+Passo 2 — encontre três tipos de vazamento:
+- DUPLICADO: a mesma coisa cobrada duas vezes, ou duas ferramentas que fazem o mesmo serviço.
+- SEM USO: coisas que eu pago e não uso há mais de 60 dias (procure nos e-mails sinais de acesso ou de uso).
+- FALTANDO: coisas que eu digo que são prioridade e nas quais não estou gastando; onde meu dinheiro discorda do meu plano.
+
+Passo 3 — para cada achado, me dê o comprovante: a linha exata do extrato, a data, o valor e o e-mail ou evidência que sustenta. Se não encontrar evidência, marque "não confirmado". Não chute.
+
+Passo 4 — uma tabela, do maior para o menor: vazamento → custo por mês → custo por ano → comprovante → o que eu devo fazer (cancelar / juntar / manter / começar). Totais no rodapé, com "confirmado" e "não confirmado" separados.
+
+Passo 5 — escreva os rascunhos dos e-mails de cancelamento e o texto da única compra que eu deveria fazer, mas não envie nada. Eu decido.
+
+Regra: uma linha marcada não é dinheiro economizado. Só uma cobrança confirmada e cancelada é.
+
+Minhas prioridades deste trimestre: &lt;escreva em 2 ou 3 linhas&gt;</pre></div>
+      <ol class="psteps">
+        <li><label><input type="checkbox" data-ptask="1"> Baixe o extrato dos últimos 30 a 90 dias no aplicativo do banco ou do cartão. Apague número de conta e de cartão antes de colar.</label></li>
+        <li><label><input type="checkbox" data-ptask="2"> Escreva suas prioridades do trimestre em duas ou três linhas no fim do pedido. Sem elas, o tipo "faltando" não aparece.</label></li>
+        <li><label><input type="checkbox" data-ptask="3"> Cole o pedido e o extrato. Se a IA começar a apontar vazamentos antes de mostrar a lista completa de cobranças, diga "primeiro a lista completa".</label></li>
+        <li><label><input type="checkbox" data-ptask="4"> Receba a tabela. Você deve ver: ordem do maior para o menor, uma coluna de comprovante preenchida em toda linha (ou "não confirmado") e dois totais separados no rodapé.</label></li>
+        <li><label><input type="checkbox" data-ptask="5"> Escolha a maior linha confirmada e abra o comprovante você mesmo. Se bater, leia o rascunho de cancelamento. Não envie ainda: durma sobre a decisão.</label></li>
+      </ol>
+      <p class="pdone">Você acabou de fazer a leitura que vinha adiando, com prova em cada linha e sem entregar a decisão a ninguém. O curso termina aqui, e a regra fica: o problema mais difícil que você ainda consegue conferir.</p>
+    </section>
+  </div>
+
+  <aside class="rail"><div class="railsticky">
+    <div class="figstage">
+      <div class="fig on" data-fig="1" data-cap="<b>Fig.</b> três entradas (extrato, e-mails, prioridades) e três tipos de vazamento na saída. O tipo 'faltando' só existe se a entrada 'prioridades' estiver lá: é o cruzamento do plano com o dinheiro."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <g font-family="monospace" font-size="8" fill="#C7C2D0"><text x="14" y="44">extrato</text><text x="14" y="100">e-mails</text><text x="14" y="156" fill="#F2B45C">prioridades</text></g>
+        <g stroke="#948DA6" stroke-width="1.2"><path d="M70 40 L100 60 M70 40 L100 100 M70 96 L100 100 M70 96 L100 60"/></g>
+        <path d="M84 152 L100 140" stroke="#F2B45C" stroke-width="1.5"/>
+        <g stroke="#7CE0C6" stroke-width="1.5"><rect x="102" y="48" width="70" height="24" rx="4"/><rect x="102" y="88" width="70" height="24" rx="4"/></g>
+        <rect x="102" y="128" width="70" height="24" rx="4" stroke="#F2B45C" stroke-width="1.5"/>
+        <g font-family="monospace" font-size="8"><text x="110" y="64" fill="#7CE0C6">duplicado</text><text x="110" y="104" fill="#7CE0C6">sem uso</text><text x="110" y="144" fill="#F2B45C">faltando</text></g>
+        <text x="106" y="184" font-family="monospace" font-size="7" fill="#948DA6">plano × dinheiro</text>
+      </svg></div>
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> cada achado é uma linha ligada a um comprovante: a linha do extrato e o e-mail. Quando o fio até o comprovante não existe, o achado cai na coluna 'não confirmado', nunca na de confirmado."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <g stroke="#948DA6" stroke-width="1.2"><rect x="14" y="24" width="80" height="20" rx="3"/><rect x="14" y="70" width="80" height="20" rx="3"/><rect x="14" y="116" width="80" height="20" rx="3"/></g>
+        <g font-family="monospace" font-size="7" fill="#C7C2D0"><text x="20" y="38">achado 1</text><text x="20" y="84">achado 2</text><text x="20" y="130">achado 3</text></g>
+        <path d="M94 34 L130 34 M94 80 L130 80" stroke="#7CE0C6" stroke-width="1.5"/>
+        <path d="M94 126 L112 126" stroke="#E0736F" stroke-width="1.5" stroke-dasharray="3 3"/><text x="116" y="129" font-family="monospace" font-size="8" fill="#E0736F">?</text>
+        <g stroke="#7CE0C6" stroke-width="1.2" fill="#15131d"><rect x="132" y="22" width="30" height="24" rx="2"/><rect x="168" y="22" width="30" height="24" rx="2"/><rect x="132" y="68" width="30" height="24" rx="2"/><rect x="168" y="68" width="30" height="24" rx="2"/></g>
+        <g font-family="monospace" font-size="6" fill="#7CE0C6"><text x="136" y="37">linha</text><text x="172" y="37">e-mail</text><text x="136" y="83">linha</text><text x="172" y="83">e-mail</text></g>
+        <rect x="14" y="156" width="88" height="20" rx="3" stroke="#7CE0C6" stroke-width="1.5"/><text x="20" y="170" font-family="monospace" font-size="7" fill="#7CE0C6">confirmado: 1, 2</text>
+        <rect x="112" y="156" width="94" height="20" rx="3" stroke="#948DA6" stroke-width="1.5"/><text x="118" y="170" font-family="monospace" font-size="7" fill="#948DA6">não confirm.: 3</text>
+      </svg></div>
+      <div class="fig" data-fig="3" data-cap="<b>Fig.</b> a tabela final: barras do maior para o menor, uma coluna de ação por linha (cancelar, juntar, manter, começar) e dois totais no rodapé que nunca se somam."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <g fill="#7CE0C6" opacity=".85"><rect x="14" y="20" width="120" height="12" rx="2"/><rect x="14" y="40" width="90" height="12" rx="2"/><rect x="14" y="60" width="66" height="12" rx="2"/><rect x="14" y="80" width="44" height="12" rx="2"/></g>
+        <rect x="14" y="100" width="70" height="12" rx="2" fill="#F2B45C" opacity=".85"/>
+        <g font-family="monospace" font-size="7" fill="#C7C2D0"><text x="150" y="30">cancelar</text><text x="150" y="50">juntar</text><text x="150" y="70">cancelar</text><text x="150" y="90">manter</text><text x="150" y="110" fill="#F2B45C">começar</text></g>
+        <path d="M14 128 L206 128" stroke="#37324a" stroke-width="1"/>
+        <rect x="14" y="140" width="88" height="22" rx="3" stroke="#7CE0C6" stroke-width="1.5"/><text x="20" y="155" font-family="monospace" font-size="7" fill="#7CE0C6">confirmado R$ 310</text>
+        <rect x="112" y="140" width="94" height="22" rx="3" stroke="#948DA6" stroke-width="1.5"/><text x="118" y="155" font-family="monospace" font-size="7" fill="#948DA6">não confirm. R$ 89</text>
+        <text x="14" y="186" font-family="monospace" font-size="7" fill="#948DA6">maior → menor · totais separados</text>
+      </svg></div>
+      <div class="fig" data-fig="4" data-cap="<b>Fig.</b> a divisão de trabalho que atravessa o curso: a IA prepara (tabela, rascunhos, comprovantes); você decide e aperta o botão. A seta de 'enviar' só sai do seu lado."><svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
+        <path d="M110 20 L110 180" stroke="#37324a" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text x="30" y="34" font-family="monospace" font-size="8" fill="#7CE0C6">a IA prepara</text>
+        <text x="132" y="34" font-family="monospace" font-size="8" fill="#ECE6D9">você decide</text>
+        <g stroke="#7CE0C6" stroke-width="1.5" fill="#15131d"><rect x="24" y="52" width="66" height="26" rx="4"/><rect x="24" y="90" width="66" height="26" rx="4"/><rect x="24" y="128" width="66" height="26" rx="4"/></g>
+        <g font-family="monospace" font-size="7" fill="#7CE0C6"><text x="30" y="69">tabela</text><text x="30" y="107">comprovantes</text><text x="30" y="145">rascunhos</text></g>
+        <path d="M90 141 L128 141" stroke="#948DA6" stroke-width="1.2"/>
+        <circle cx="150" cy="141" r="14" stroke="#ECE6D9" stroke-width="2"/>
+        <path d="M164 141 L200 141" stroke="#F2B45C" stroke-width="2"/><path d="M194 135 L200 141 L194 147" stroke="#F2B45C" stroke-width="2" fill="none"/>
+        <text x="166" y="132" font-family="monospace" font-size="7" fill="#F2B45C">enviar</text>
+        <text x="126" y="176" font-family="monospace" font-size="7" fill="#948DA6">abra o resultado você</text>
+      </svg></div>
+    </div>
+    <p class="railcap"></p>
+    <div class="steps-ind"></div>
+    <p class="sidenote">Grife qualquer trecho para virar um cartão de revisão.</p>
+  </div></aside>
+</div>
+
+<div class="fecho-wrap">
+<div class="recap-autor">
+  <p class="rak">Resumo</p>
+  <ul>
+    <li>Há três tipos de vazamento: duplicado, sem uso e faltando. O terceiro cruza suas prioridades com seu dinheiro e só existe se você escrever as prioridades.</li>
+    <li>A IA lê tudo antes de apontar, e cada achado carrega a linha do extrato e a evidência. Sem evidência, é "não confirmado", nunca chute.</li>
+    <li>A tabela vai do maior para o menor, com ação por linha e totais separados. Linha marcada não é dinheiro de volta; cobrança cancelada que sumiu do extrato é.</li>
+    <li>A IA escreve os rascunhos e não envia nada. Essa divisão, ela prepara e você decide, é a regra que atravessou as seis aulas.</li>
+  </ul>
+</div>
+
+<div class="next-action">
+  <p class="nak">Seu próximo passo</p>
+  <p class="na-win">Você acabou de fechar a trilha com a leitura mais chata do trimestre feita, provada e sob o seu controle.</p>
+  <p class="na-action">Nos próximos 15 minutos, marque na agenda, daqui a 30 dias, um lembrete de dez minutos: abrir o extrato novo e conferir se as cobranças que você cancelou sumiram. Só aí a coluna "economizado" vira verdade.</p>
+  <p class="na-hook">Fim da trilha. Os cinco pedidos estão prontos para repetir a cada trimestre: o operador, o painel, o teste de cliente, a família visual e a auditoria. Volte à aula 1 quando tiver um problema novo e não souber se ele vale a IA: a regra única responde.</p>
+</div>
+</div>
+
+<nav class="lnav"><a href="#aula-5">← aula 5</a><a href="#trilha">concluir a trilha →</a></nav>
+<footer>Aula 6 · INEMA.CLUB PRO</footer>
+
+<script type="application/json" id="cards-6">
+[
+  {"front":"A tabela apontou o programa de agenda da clínica como 'sem uso'. Antes de cancelar, o que o dono da clínica confere, e o que ele provavelmente descobre?","back":"Abre o comprovante e tenta entrar no serviço. Descobre que quem usa é a recepcionista: os e-mails de acesso não eram dele. Não era vazamento."},
+  {"front":"Um corretor colou o extrato mas esqueceu de escrever as prioridades. Que tipo de vazamento vai faltar na tabela, e por quê?","back":"O tipo 'faltando'. Ele é o cruzamento entre o que você diz que é prioridade e onde o dinheiro não vai. Sem prioridades escritas, não há com o que cruzar."},
+  {"front":"A IA entregou 'R$ 2.400 por ano em vazamentos' num total único. O que está errado na tabela e o que você pede?","back":"Os totais confirmado e não confirmado foram somados. Você pede a separação: o número que importa é só o confirmado, e mesmo esse ainda não é dinheiro de volta até a cobrança sumir do extrato."},
+  {"front":"Uma contadora recebeu os rascunhos de cancelamento e quer que a IA 'já mande para agilizar'. Qual é a sua resposta?","back":"Não. A IA prepara, você decide e você envia. Além de ser a regra do pedido, é a única forma de garantir que ninguém cancela um serviço que outra pessoa da equipe usa."},
+  {"front":"Você tem um problema novo, fora dos cinco pedidos do curso, e não sabe se vale entregar à IA. Que pergunta decide?","back":"É o problema mais difícil que eu ainda consigo conferir? Se sim, dê os arquivos, as ferramentas e uma definição de 'pronto', e abra o resultado você mesmo. Se não consegue conferir, não entregue ainda."}
+]
+</script>
+
+<!-- COMPLETUDE aula-6 | tipo=PRATICA | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="22min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  Regina contadora mini-caso (s1) · Marcos dentista (s2, s4) · Paulo corretor (s3) (4/4)
+  [OK] apoio-visual       fig 1 entradas e tipos · fig 2 fio até o comprovante · fig 3 tabela e totais · fig 4 divisão de trabalho (4/4)
+  [OK] practice           .practice[data-mode="prompt"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal "cerca de 15 minutos" (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-6"> presente (5 cartões: diagnóstico, diagnóstico, diagnóstico, decisão, aplicação)
+  [OK] anti-duplicacao    substring ≥6 palavras: nenhuma · forma: 5/5 · operação: recap afirma, cartões aplicam/decidem em cenário
+  [N/A] teste-se-FUND     aula é PRÁTICA/INTEGRAÇÃO (obrigação não se aplica); sem teste-se opcional
+  Pool: qsteps (obrig.) + mini-caso (obrig., s1 prosa) + qerr (opcional) + cartões = 4 tipos (teto 5). Densidade: quadros em s2 e s4, s3 prosa pura entre eles. data-versao em 3/3 steps ferramenta; s4 é fundamento (regra única).
+-->
+</section>
+
+<script src="assets/curso.js"></script>
+</body>
+</html>
